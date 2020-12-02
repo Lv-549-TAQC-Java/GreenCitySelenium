@@ -2,6 +2,7 @@ package com.greencity.pages;
 
 import com.greencity.driver.DriverRepository;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
@@ -10,6 +11,7 @@ public class BasePage {
 
     public BasePage() {
         driver = DriverRepository.DRIVERS.get();
-        wait = new WebDriverWait(driver,300);
+        wait = new WebDriverWait(driver,3000);
+        PageFactory.initElements(driver, this);
     }
 }

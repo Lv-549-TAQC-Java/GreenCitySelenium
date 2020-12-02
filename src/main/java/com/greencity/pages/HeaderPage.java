@@ -1,22 +1,19 @@
 package com.greencity.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.FindBy;
 
-public class HeaderPage extends BasePage{
+public class HeaderPage extends BasePage {
+    @FindBy(css = "* ul > li.sign-up-link.ng-star-inserted > div")
     private WebElement signUpButton;
+    @FindBy(css = "* .sign-in-link>a")
     private WebElement signInButton;
 
     public WebElement getSignUpButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
-        return signUpButton = driver
-                .findElement(By.cssSelector("* li:nth-child(8) > div"));
+        return signUpButton;
     }
 
     public WebElement getSignInButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
-        return signInButton = driver
-                .findElement(By.cssSelector("* .sign-in-link>a"));
+        return signInButton;
     }
 }

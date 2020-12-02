@@ -1,32 +1,37 @@
 package com.greencity.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class RegisterPage extends BasePage{
+public class RegisterPage extends BasePage {
+    @FindBy(id = "email")
     private WebElement email;
+    @FindBy(id = "firstName")
     private WebElement firstName;
+    @FindBy(id = "password")
     private WebElement password;
+    @FindBy(id = "repeatPassword")
     private WebElement repeatPassword;
+    @FindBy(xpath = ".//*[@type='submit']")
     private WebElement submitButton;
 
     public WebElement getEmail() {
-        return email = driver.findElement(By.id("email"));
+        return email;
     }
 
     public WebElement getFirstName() {
-        return firstName = driver.findElement(By.id("firstName"));
+        return firstName;
     }
 
     public WebElement getPassword() {
-        return password = driver.findElement(By.id("password"));
+        return password;
     }
 
     public WebElement getRepeatPassword() {
-        return repeatPassword = driver.findElement(By.id("repeatPassword"));
+        return repeatPassword;
     }
 
     public WebElement getSubmitButton() {
-        return submitButton = driver.findElement(By.xpath(".//*[@type='submit']"));
+        return submitButton;
     }
 }
