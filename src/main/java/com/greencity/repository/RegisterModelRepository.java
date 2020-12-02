@@ -8,10 +8,10 @@ public class RegisterModelRepository {
     }
 
     public static RegisterModel getRegisterModel() {
-        String password = RandomStringUtils.randomAlphabetic(7);
+        String password = "1Aa@testTest";
         return RegisterModel.getBuilder()
                 .email(RandomStringUtils.randomAlphabetic(5) + "@gmail.com")
-                .firstName(RandomStringUtils.randomAlphabetic(5))
+                .firstName("Chromium")
                 .password(password)
                 .repeatPassword(password)
                 .build();
