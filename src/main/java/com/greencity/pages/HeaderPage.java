@@ -1,0 +1,22 @@
+package com.greencity.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+public class HeaderPage extends BasePage{
+    private WebElement signUpButton;
+    private WebElement signInButton;
+
+    public WebElement getSignUpButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
+        return signUpButton = driver
+                .findElement(By.cssSelector("* li:nth-child(8) > div"));
+    }
+
+    public WebElement getSignInButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
+        return signInButton = driver
+                .findElement(By.cssSelector("* .sign-in-link>a"));
+    }
+}
