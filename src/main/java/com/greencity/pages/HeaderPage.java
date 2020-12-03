@@ -7,6 +7,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class HeaderPage extends BasePage{
     private WebElement signUpButton;
     private WebElement signInButton;
+    private WebElement ecoNewsButton;
+
+    public WebElement getEcoNewsButton(){
+        return ecoNewsButton = driver
+                .findElement(By.cssSelector(".navigation-menu-left [href='\\/GreenCityClient\\/news']"));
+    }
 
     public WebElement getSignUpButton() {
         return signUpButton = driver

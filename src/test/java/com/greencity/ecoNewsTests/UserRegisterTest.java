@@ -1,3 +1,6 @@
+package com.greencity.ecoNewsTests;
+
+import com.greencity.ecoNewsTests.BaseTest;
 import com.greencity.navigation.Navigation;
 import com.greencity.steps.MainPageBL;
 import com.greencity.steps.RegisterPageBL;
