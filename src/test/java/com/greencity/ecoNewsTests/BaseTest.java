@@ -1,3 +1,5 @@
+package com.greencity.ecoNewsTests;
+
 import com.greencity.driver.DriverRepository;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;

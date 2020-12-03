@@ -13,11 +13,11 @@ public class DriverRepository {
     }
 
     public static void downloadWebDriver() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     public static void instanceWebBrowser() {
-        webDriver = new FirefoxDriver();
+        webDriver = new ChromeDriver();
         DRIVERS.set(webDriver);
         webDriver.manage().window().maximize();
     }
