@@ -3,6 +3,7 @@ package com.greencity.driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverRepository {
     public final static ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>();
@@ -12,11 +13,11 @@ public class DriverRepository {
     }
 
     public static void downloadWebDriver() {
-        WebDriverManager.chromiumdriver().setup();
+        WebDriverManager.firefoxdriver().setup();
     }
 
     public static void instanceWebBrowser() {
-        webDriver = new ChromeDriver();
+        webDriver = new FirefoxDriver();
         DRIVERS.set(webDriver);
         webDriver.manage().window().maximize();
     }

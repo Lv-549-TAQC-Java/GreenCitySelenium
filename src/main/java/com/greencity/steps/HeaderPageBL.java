@@ -12,4 +12,8 @@ public class HeaderPageBL {
         headerPage.getSignUpButton().click();
         return new RegisterPageBL();
     }
+    public EcoNewsPageBL clickOnEcoNewsButton(){
+        headerPage.getEcoNewsButton().click();
+        return new EcoNewsPageBL();
+    }
 }
