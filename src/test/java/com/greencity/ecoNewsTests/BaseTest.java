@@ -1,14 +1,9 @@
 package com.greencity.ecoNewsTests;
 
-
-import javafx.scene.shape.Path;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
