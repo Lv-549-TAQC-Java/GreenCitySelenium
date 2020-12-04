@@ -1,6 +1,7 @@
 package com.greencity.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class NewsItemPage extends BasePage{
@@ -15,7 +16,9 @@ public class NewsItemPage extends BasePage{
     private WebElement socialNetworkingLink;
     private WebElement mayBeInterestingForYouNewsItem;
 
-
+    public NewsItemPage(WebDriver driver) {
+        super(driver);
+    }
     public WebElement getBackToNewsButton() {
         return backToNewsButton = driver
                 .findElement(By.cssSelector(".button-link > .button-content"));

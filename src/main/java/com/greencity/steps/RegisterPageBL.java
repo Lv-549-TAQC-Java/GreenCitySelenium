@@ -4,14 +4,19 @@ import com.greencity.datamodel.RegisterModel;
 import com.greencity.pages.RegisterPage;
 import com.greencity.pages.SuccessRegisterPage;
 import com.greencity.repository.RegisterModelRepository;
+//import com.thoughtworks.selenium.SeleneseTestBase;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class RegisterPageBL {
+    //private static final SeleneseTestBase Assert = ;
     private RegisterPage registerPage;
     private SuccessRegisterPage successRegisterPage;
+    protected WebDriver driver;
 
-    public RegisterPageBL() {
-        registerPage = new RegisterPage();
+    public RegisterPageBL(WebDriver driver) {
+        this.driver = driver;
+        registerPage = new RegisterPage(driver);
     }
 
     public RegisterPageBL registerNewPerson() {
@@ -21,7 +26,7 @@ public class RegisterPageBL {
         inputPassword(registerModel.getPassword());
         clickOnSubmittButton();
 
-        successRegisterPage = new SuccessRegisterPage();
+        successRegisterPage = new SuccessRegisterPage(driver);
         return this;
     }
 
@@ -50,7 +55,7 @@ public class RegisterPageBL {
 
     public void verifyUserRegistration() {
         String expectedMessage = "You have succesfully";
-        Assert.assertEquals(successRegisterPage.getSuccessTitle().getText(),
-                expectedMessage, "Incorrect page title");
+       Assert.assertEquals(successRegisterPage.getSuccessTitle().getText(),
+               expectedMessage, "Incorrect page title");
     }
 }

@@ -1,6 +1,7 @@
 package com.greencity.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class RegisterPage extends BasePage{
@@ -9,6 +10,9 @@ public class RegisterPage extends BasePage{
     private WebElement password;
     private WebElement repeatPassword;
     private WebElement submitButton;
+    public RegisterPage(WebDriver driver) {
+        super(driver);
+    }
 
     public WebElement getEmail() {
         return email = driver.findElement(By.id("email"));
