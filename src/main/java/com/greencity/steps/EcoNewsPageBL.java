@@ -11,4 +11,7 @@ public class EcoNewsPageBL {
         ecoNewsPage = new EcoNewsPage(driver);
     }
 
+    public int numbOfNewsItemOnThePage() {
+        return ecoNewsPage.getNewsItemComponentList().getNumbOfNewsItemOnThePage();
+    }
 }

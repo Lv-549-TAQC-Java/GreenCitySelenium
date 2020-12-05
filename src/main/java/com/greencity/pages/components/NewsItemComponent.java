@@ -43,9 +43,9 @@ public class NewsItemComponent {
 
     private void initElem(WebElement container) {
         img = container.findElement(By.className("list-image-content"));
-        categoryList = container.findElements(By.className("ul-eco-buttons.ng-star-inserted"));
-        title = container.findElement(By.className("title-list.word-wrap"));
-        description = container.findElement(By.className("list-text.word-wrap"));
+        categoryList = container.findElements(By.className("ul-eco-buttons"));
+        title = container.findElement(By.className("title-list"));
+        description = container.findElement(By.cssSelector("div.list-text.word-wrap"));
         List<WebElement> userDateList = container.findElements(By.className("user-data-text-date"));
         createdDate = userDateList.get(0);
         author = userDateList.get(1);

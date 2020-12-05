@@ -1,5 +1,6 @@
 package com.greencity.pages;
 
+import com.greencity.pages.components.NewsItemComponentList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import java.util.List;
 public class EcoNewsPage extends BasePage{
     private WebElement tagButtons;
     private WebElement CreateNews;
+    private NewsItemComponentList newsItemComponentList;
 
     public EcoNewsPage(WebDriver driver) {
         super(driver);
@@ -27,4 +29,7 @@ public class EcoNewsPage extends BasePage{
     }
 
 
+    public NewsItemComponentList getNewsItemComponentList() {
+        return new NewsItemComponentList(driver);
+    }
 }
