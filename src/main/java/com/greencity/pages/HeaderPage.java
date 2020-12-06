@@ -5,14 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HeaderPage extends BasePage{
+public class HeaderPage{
     private WebElement signUpButton;
     private WebElement signInButton;
     private WebElement ecoNewsButton;
-
+    protected WebDriver driver;
 
     public HeaderPage(WebDriver driver) {
-        super(driver);
+        this.driver = driver;
     }
     public WebElement getEcoNewsButton(){
         return ecoNewsButton = driver

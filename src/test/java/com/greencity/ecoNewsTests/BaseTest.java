@@ -1,31 +1,24 @@
 package com.greencity.ecoNewsTests;
 
 
-import javafx.scene.shape.Path;
-import org.junit.After;
-import org.junit.AfterClass;
+import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
+
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected static WebDriver driver;
 
-//    @BeforeSuite
-//    public void setup() {
-//        DriverRepository.downloadWebDriver();
-//    }
-
     @BeforeClass
     public void setUpClass() {
-        String webDriverPath =  System.getenv("ChromWebdriver");
+        String webDriverPath =  System.getenv("ChromWebDriver");
         System.out.println("webdriver" + webDriverPath);
         System.setProperty("webdriver.chrome.driver", webDriverPath);
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://ita-social-projects.github.io/GreenCityClient");
