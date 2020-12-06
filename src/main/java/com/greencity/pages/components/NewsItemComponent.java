@@ -1,7 +1,11 @@
 package com.greencity.pages.components;
 
+import com.greencity.pages.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -42,13 +46,13 @@ public class NewsItemComponent {
     }
 
     private void initElem(WebElement container) {
-        img = container.findElement(By.className("list-image-content"));
-        categoryList = container.findElements(By.className("ul-eco-buttons"));
-        title = container.findElement(By.className("title-list"));
-        description = container.findElement(By.cssSelector("div.list-text.word-wrap"));
-        List<WebElement> userDateList = container.findElements(By.className("user-data-text-date"));
-        createdDate = userDateList.get(0);
-        author = userDateList.get(1);
+           img = container.findElement(By.cssSelector("div.list-image"));
+           categoryList = container.findElements(By.cssSelector("div.filter-tag > div"));
+           title = container.findElement(By.cssSelector("div.title-list"));
+           description = container.findElement(By.cssSelector("div.list-text"));
+           List<WebElement> userDataList = container.findElements(By.cssSelector("div.user-data-added-news > p"));
+           createdDate = userDataList.get(0);
+           author = userDataList.get(1);
     }
 
 }

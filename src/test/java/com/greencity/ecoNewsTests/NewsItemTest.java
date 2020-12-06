@@ -6,14 +6,16 @@ import org.testng.annotations.Test;
 
 public class NewsItemTest extends BaseTest {
     @Test
-    public void simpleTest() throws InterruptedException {
+    public void simpleTest(){
 
-        MainPageBL mainPageBL = new MainPageBL(driver);
+        //MainPageBL mainPageBL = new MainPageBL(driver);
 
-        EcoNewsPageBL ecoNewsPageBL = mainPageBL
+        System.out.println(new MainPageBL(driver)
                 .getHeaderPageBL()
-                .clickOnEcoNewsButton();
-        System.out.println(ecoNewsPageBL.numbOfNewsItemOnThePage());
+                .clickOnEcoNewsButton()
+                .numbOfNewsItemOnThePage());
+
+
 
     }
 

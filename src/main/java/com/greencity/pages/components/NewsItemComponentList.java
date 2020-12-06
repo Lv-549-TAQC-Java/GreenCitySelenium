@@ -10,20 +10,26 @@ import java.util.List;
 
 public class NewsItemComponentList extends BasePage {
     List<NewsItemComponent> newsList;
-    int numbOfNewsItemOnThePage;
 
-    public NewsItemComponentList(WebDriver driver)  {
+    public NewsItemComponentList(WebDriver driver) {
         super(driver);
-            initElem();
+        initElem();
     }
 
     private void initElem() {
-        newsList=new ArrayList<>();
-     List<WebElement> itemWebElemList=driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
-     for (WebElement item:itemWebElemList){
-         newsList.add(new NewsItemComponent(item));
-     }
-     numbOfNewsItemOnThePage=newsList.size();
+        newsList = new ArrayList<NewsItemComponent>();
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        List<WebElement> itemWebElemList = driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
+        System.out.println("itemWebElemList-" + itemWebElemList.size());
+        for (WebElement item : itemWebElemList) {
+          scrollIntoMiddleOfView(item);
+            newsList.add(new NewsItemComponent(item));
+        }
     }
 
     public List<NewsItemComponent> getNewsList() {
@@ -31,6 +37,6 @@ public class NewsItemComponentList extends BasePage {
     }
 
     public int getNumbOfNewsItemOnThePage() {
-        return numbOfNewsItemOnThePage;
+        return newsList.size();
     }
 }
