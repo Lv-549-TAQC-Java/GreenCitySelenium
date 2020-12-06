@@ -6,9 +6,14 @@ import org.openqa.selenium.WebDriver;
 public class EcoNewsPageBL {
     protected WebDriver driver;
     private EcoNewsPage ecoNewsPage;
+
     public EcoNewsPageBL(WebDriver driver){
         this.driver = driver;
         ecoNewsPage = new EcoNewsPage(driver);
     }
 
+    public NewsItemPageBL clickOnItemNewsCard(){
+        ecoNewsPage.getItemNewsCard().click();
+        return new NewsItemPageBL(driver);
+    }
 }

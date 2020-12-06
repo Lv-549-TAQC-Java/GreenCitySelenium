@@ -9,6 +9,7 @@ import java.util.List;
 public class EcoNewsPage extends BasePage{
     private WebElement tagButtons;
     private WebElement CreateNews;
+    private WebElement itemNewsCard;
 
     public EcoNewsPage(WebDriver driver) {
         super(driver);
@@ -26,5 +27,9 @@ public class EcoNewsPage extends BasePage{
                 .findElement(By.cssSelector("a div"));
     }
 
+    public WebElement getItemNewsCard(){
+        return itemNewsCard = driver
+                .findElement(By.cssSelector(".list.ng-star-inserted > li:nth-of-type(1)"));
+    }
 
 }

@@ -26,7 +26,7 @@ public class NewsItemPage extends BasePage{
 
     public WebElement getItemCategoryTag() {
         return itemCategoryTag = driver
-                .findElement(By.cssSelector(".tags"));
+                .findElement(By.cssSelector(".tags-item"));
     }
     public WebElement getNewsTitle(){
         return newsTitle = driver
