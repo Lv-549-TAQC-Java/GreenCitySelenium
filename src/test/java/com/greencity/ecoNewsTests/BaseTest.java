@@ -17,7 +17,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUpClass() {
-        String webDriverPath =  System.getenv("ChromWebdriver");
+        String webDriverPath =  System.getenv("ChromeDriver");
         System.out.println("webdriver" + webDriverPath);
         System.setProperty("webdriver.chrome.driver", webDriverPath);
         driver = new ChromeDriver();
