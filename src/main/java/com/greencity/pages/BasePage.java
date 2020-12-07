@@ -12,8 +12,4 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public void scrollIntoMiddleOfView(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView({block: \"center\"})", element);
-    }
 }

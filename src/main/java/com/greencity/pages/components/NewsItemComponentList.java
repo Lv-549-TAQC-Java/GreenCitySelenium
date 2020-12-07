@@ -1,8 +1,9 @@
 package com.greencity.pages.components;
 
 import com.greencity.pages.BasePage;
+import com.greencity.pages.EcoNewsPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,31 +20,10 @@ public class NewsItemComponentList extends BasePage {
 
     private void initElem() {
         newsList = new ArrayList<NewsItemComponent>();
-
-        //((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight)");
-        // while (!driver.findElement(By.cssSelector("div > div.description")).isDisplayed()) {
-        //((JavascriptExecutor) driver).executeScript("window.scrollBy(0,3000)");
-        while (true) {
-            try {
-
-                driver.findElement(By.cssSelector("div.description__title > h2"));
-                break;
-
-            } catch (Exception exception) {
-                ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        //  }
-
+        new EcoNewsPage(driver).scrollToEndOfPage();
         List<WebElement> itemWebElemList = driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
         System.out.println("itemWebElemList-" + itemWebElemList.size());
         for (WebElement item : itemWebElemList) {
-            // scrollIntoMiddleOfView(item);
             newsList.add(new NewsItemComponent(item));
         }
     }
@@ -54,5 +34,13 @@ public class NewsItemComponentList extends BasePage {
 
     public int getNumbOfNewsItemOnThePage() {
         return newsList.size();
+    }
+    public NewsItemComponent findNewsItemByTitle(String title){
+        for (NewsItemComponent newsItem:newsList){
+            if (newsItem.getTitle().getText().equals(title)){
+                return newsItem;
+            }
+        }
+       throw new RuntimeException("there is no news on the page with such a title-"+title);
     }
 }
