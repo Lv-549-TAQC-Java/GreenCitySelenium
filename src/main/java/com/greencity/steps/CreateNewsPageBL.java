@@ -10,4 +10,10 @@ public class CreateNewsPageBL {
         this.driver = driver;
         createNewsPage = new CreateNewsPage(driver);
     }
+
+    public EcoNewsPageBL clickOnEcoNewsButton(){
+        createNewsPage.getCreateNews().click();
+        return new EcoNewsPageBL(driver);
+    }
+
 }

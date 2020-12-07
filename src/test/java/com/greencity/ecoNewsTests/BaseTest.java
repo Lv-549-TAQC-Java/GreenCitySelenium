@@ -25,7 +25,7 @@ public class BaseTest {
         String webDriverPath =  System.getenv("ChromWebdriver");
         System.out.println("webdriver" + webDriverPath);
         System.setProperty("webdriver.chrome.driver", webDriverPath);
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://ita-social-projects.github.io/GreenCityClient");

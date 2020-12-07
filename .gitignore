@@ -12,3 +12,4 @@ buildNumber.properties
 # Idea
 .idea
 *.iml
+*.log

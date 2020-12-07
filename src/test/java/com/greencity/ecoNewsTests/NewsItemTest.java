@@ -19,9 +19,9 @@ public class NewsItemTest extends BaseTest{
 
         MainPageBL mainPageBL = new MainPageBL(driver);
 
-//        EcoNewsPageBL ecoNewsPageBL = mainPageBL
-//                .getHeaderPageBL()
-//                .clickOnEcoNewsButton();
+       EcoNewsPageBL ecoNewsPageBL = mainPageBL
+                .getHeaderPageBL()
+                .clickOnEcoNewsButton();
 
 
     }
