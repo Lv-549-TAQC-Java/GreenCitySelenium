@@ -32,4 +32,5 @@ public class EcoNewsPage extends BasePage{
     public NewsItemComponentList getNewsItemComponentList() {
         return new NewsItemComponentList(driver);
     }
+
 }

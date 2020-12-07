@@ -2,6 +2,7 @@ package com.greencity.pages.components;
 
 import com.greencity.pages.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -19,15 +20,30 @@ public class NewsItemComponentList extends BasePage {
     private void initElem() {
         newsList = new ArrayList<NewsItemComponent>();
 
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        //((JavascriptExecutor) driver).executeScript("window.scrollTo(document.body.scrollHeight)");
+        // while (!driver.findElement(By.cssSelector("div > div.description")).isDisplayed()) {
+        //((JavascriptExecutor) driver).executeScript("window.scrollBy(0,3000)");
+        while (true) {
+            try {
+
+                driver.findElement(By.cssSelector("div.description__title > h2"));
+                break;
+
+            } catch (Exception exception) {
+                ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        //  }
+
         List<WebElement> itemWebElemList = driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
         System.out.println("itemWebElemList-" + itemWebElemList.size());
         for (WebElement item : itemWebElemList) {
-          scrollIntoMiddleOfView(item);
+            // scrollIntoMiddleOfView(item);
             newsList.add(new NewsItemComponent(item));
         }
     }
