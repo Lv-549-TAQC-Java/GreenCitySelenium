@@ -23,4 +23,10 @@ public class NewsItemPageBL {
         Assert.assertEquals(actualItemCategoryName,correctItemCategoryName);
     }
 
+    public void verifyItemDate(){
+        String actualItemDate = newsItemPage.getDateInfo().getText();
+        String correctItemDate = "Dec 5, 2020";
+        Assert.assertEquals(actualItemDate,correctItemDate);
+    }
+
 }

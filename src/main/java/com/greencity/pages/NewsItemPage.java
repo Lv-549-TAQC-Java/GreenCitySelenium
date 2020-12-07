@@ -16,6 +16,7 @@ public class NewsItemPage extends BasePage{
     private WebElement socialNetworkingLink;
     private WebElement mayBeInterestingForYouNewsItem;
 
+
     public NewsItemPage(WebDriver driver) {
         super(driver);
     }
@@ -30,7 +31,7 @@ public class NewsItemPage extends BasePage{
     }
     public WebElement getNewsTitle(){
         return newsTitle = driver
-                .findElement(By.cssSelector(".news-title-container"));
+                .findElement(By.cssSelector(".news-info-date"));
     }
 
     public WebElement getDateInfo() {
