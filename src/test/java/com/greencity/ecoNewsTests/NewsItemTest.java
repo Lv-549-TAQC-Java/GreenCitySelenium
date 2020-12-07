@@ -5,7 +5,7 @@ import com.greencity.steps.NewsItemPageBL;
 import org.testng.annotations.Test;
 
 
-public class NewsItemTest extends BaseTest{
+public class NewsItemTest extends BaseTest {
     @Test
     public void verifyThatItemNewsCategoryNameIsCorrect(){
         MainPageBL mainPageBL = new MainPageBL(driver);

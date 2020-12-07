@@ -1,7 +1,5 @@
 package com.greencity.ecoNewsTests;
 
-import com.greencity.ecoNewsTests.BaseTest;
-
 import com.greencity.steps.MainPageBL;
 import com.greencity.steps.RegisterPageBL;
 import org.testng.annotations.Test;

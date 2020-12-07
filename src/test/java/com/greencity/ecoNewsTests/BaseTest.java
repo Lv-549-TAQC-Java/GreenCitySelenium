@@ -1,21 +1,24 @@
 package com.greencity.ecoNewsTests;
 
-
-import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected static WebDriver driver;
 
+//    @BeforeSuite
+//    public void setup() {
+//        DriverRepository.downloadWebDriver();
+//    }
+
     @BeforeClass
     public void setUpClass() {
-        String webDriverPath =  System.getenv("ChromWebDriver");
+        String webDriverPath =  System.getenv("ChromWebdriver");
         System.out.println("webdriver" + webDriverPath);
         System.setProperty("webdriver.chrome.driver", webDriverPath);
         driver = new ChromeDriver();
