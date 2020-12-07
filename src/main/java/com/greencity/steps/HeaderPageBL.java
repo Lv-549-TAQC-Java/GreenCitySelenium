@@ -14,7 +14,7 @@ public class HeaderPageBL {
     }
     public RegisterPageBL clickOnSignUpButton() {
         headerPage.getSignUpButton().click();
-        return new RegisterPageBL();
+        return new RegisterPageBL(driver);
     }
     public EcoNewsPageBL clickOnEcoNewsButton(){
         headerPage.getEcoNewsButton().click();
