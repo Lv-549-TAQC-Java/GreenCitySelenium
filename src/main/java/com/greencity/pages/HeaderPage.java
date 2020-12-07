@@ -1,6 +1,7 @@
 package com.greencity.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -9,6 +10,10 @@ public class HeaderPage extends BasePage{
     private WebElement signInButton;
     private WebElement ecoNewsButton;
 
+
+    public HeaderPage(WebDriver driver) {
+        super(driver);
+    }
     public WebElement getEcoNewsButton(){
         return ecoNewsButton = driver
                 .findElement(By.cssSelector(".navigation-menu-left [href='\\/GreenCityClient\\/news']"));

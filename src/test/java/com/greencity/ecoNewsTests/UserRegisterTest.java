@@ -1,7 +1,7 @@
 package com.greencity.ecoNewsTests;
 
 import com.greencity.ecoNewsTests.BaseTest;
-import com.greencity.navigation.Navigation;
+
 import com.greencity.steps.MainPageBL;
 import com.greencity.steps.RegisterPageBL;
 import org.testng.annotations.Test;
@@ -12,8 +12,7 @@ public class UserRegisterTest extends BaseTest {
     @Test
     public void registerUserWithValidParameters() {
 
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        MainPageBL mainPageBL = new MainPageBL();
+        MainPageBL mainPageBL = new MainPageBL(driver);
         RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
                 .clickOnSignUpButton()
                 .registerNewPerson();

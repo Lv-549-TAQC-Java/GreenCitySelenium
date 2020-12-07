@@ -1,16 +1,19 @@
 package com.greencity.steps;
 
 import com.greencity.pages.NewsItemPage;
+import org.openqa.selenium.WebDriver;
 
 public class NewsItemPageBL {
     private NewsItemPage newsItemPage;
-    public NewsItemPageBL(){
-        newsItemPage = new NewsItemPage();
+    protected WebDriver driver;
+    public NewsItemPageBL(WebDriver driver){
+        this.driver = driver;
+        newsItemPage = new NewsItemPage(driver);
     }
 
     public EcoNewsPageBL clickOnBackToNewsButton(){
         newsItemPage.getBackToNewsButton().click();
-        return new EcoNewsPageBL();
+        return new EcoNewsPageBL(driver);
     }
 
     public String getItemCategoryName(){

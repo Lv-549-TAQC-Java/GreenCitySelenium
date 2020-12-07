@@ -1,11 +1,14 @@
 package com.greencity.steps;
 
 import com.greencity.pages.EcoNewsPage;
+import org.openqa.selenium.WebDriver;
 
 public class EcoNewsPageBL {
+    protected WebDriver driver;
     private EcoNewsPage ecoNewsPage;
-    public EcoNewsPageBL(){
-        ecoNewsPage = new EcoNewsPage();
+    public EcoNewsPageBL(WebDriver driver){
+        this.driver = driver;
+        ecoNewsPage = new EcoNewsPage(driver);
     }
 
 }
