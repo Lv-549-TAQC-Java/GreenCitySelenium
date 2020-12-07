@@ -4,7 +4,6 @@ import com.greencity.pageelements.Button;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HeaderPage extends BasePage{
     private WebElement signUpButton;
@@ -17,7 +16,7 @@ public class HeaderPage extends BasePage{
     }
 
     public Button getEcoNewsButton(){
-        return ecoNewsButton = new Button(driver,".navigation-menu-left [href='\\\\/GreenCityClient\\\\/news']");
+        return ecoNewsButton = new Button(driver,".navigation-menu-left [href='\\/GreenCityClient\\/news']");
     }
 
     public WebElement getSignUpButton() {
