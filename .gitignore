@@ -13,3 +13,6 @@ buildNumber.properties
 .idea
 *.iml
 *.log
+src/main/resources/password.properties
+
+
