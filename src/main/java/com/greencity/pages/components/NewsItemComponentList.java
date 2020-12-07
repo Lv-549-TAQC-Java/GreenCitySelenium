@@ -22,7 +22,6 @@ public class NewsItemComponentList extends BasePage {
         newsList = new ArrayList<NewsItemComponent>();
         new EcoNewsPage(driver).scrollToEndOfPage();
         List<WebElement> itemWebElemList = driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
-        System.out.println("itemWebElemList-" + itemWebElemList.size());
         for (WebElement item : itemWebElemList) {
             newsList.add(new NewsItemComponent(item));
         }
@@ -35,6 +34,11 @@ public class NewsItemComponentList extends BasePage {
     public int getNumbOfNewsItemOnThePage() {
         return newsList.size();
     }
+
+    public NewsItemComponent findNewsItemByIndex(int index) {
+        return newsList.get(index);
+    }
+
     public NewsItemComponent findNewsItemByTitle(String title){
         for (NewsItemComponent newsItem:newsList){
             if (newsItem.getTitle().getText().equals(title)){
