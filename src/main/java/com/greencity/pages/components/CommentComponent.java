@@ -3,6 +3,8 @@ package com.greencity.pages.components;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class CommentComponent {
     WebElement imgAvatar;
     WebElement authorName;
@@ -12,6 +14,8 @@ public class CommentComponent {
     WebElement deleteButton;
     WebElement replyButton;
     WebElement commentLike;
+    List<CommentComponent> replies;
+
 
     public CommentComponent(WebElement container){
         init(container);
