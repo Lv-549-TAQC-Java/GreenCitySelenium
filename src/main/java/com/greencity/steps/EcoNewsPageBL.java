@@ -27,4 +27,7 @@ public class EcoNewsPageBL {
 
 
 
+    public int numbOfNewsItemOnThePage() {
+        return ecoNewsPage.getNewsItemComponentList().getNumbOfNewsItemOnThePage();
+    }
 }

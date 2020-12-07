@@ -1,15 +1,15 @@
 package com.greencity.pages;
 
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 
 public class BasePage {
     protected WebDriver driver;
-    protected WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-//        wait = new WebDriverWait(driver,300);
     }
+
 }
