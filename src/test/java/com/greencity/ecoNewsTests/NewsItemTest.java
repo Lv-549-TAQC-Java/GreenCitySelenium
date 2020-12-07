@@ -8,13 +8,16 @@ public class NewsItemTest extends BaseTest {
     @Test
     public void simpleTest(){
 
-        //MainPageBL mainPageBL = new MainPageBL(driver);
+        MainPageBL mainPageBL = new MainPageBL(driver);
 
-        System.out.println(new MainPageBL(driver)
-                .getHeaderPageBL()
-                .clickOnEcoNewsButton()
-                .numbOfNewsItemOnThePage());
+//        EcoNewsPageBL ecoNewsPageBL = mainPageBL
+//                .getHeaderPageBL()
+//                .clickOnEcoNewsButton();
 
+//        System.out.println(new MainPageBL(driver)
+//                .getHeaderPageBL()
+//                .clickOnEcoNewsButton()
+//                .numbOfNewsItemOnThePage());
 
 
     }
