@@ -1,19 +1,10 @@
 package com.greencity.ecoNewsTests;
 
-import com.greencity.ecoNewsTests.BaseTest;
 import com.greencity.steps.EcoNewsPageBL;
 import com.greencity.steps.MainPageBL;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-import com.greencity.steps.MainPageBL;
 
-import java.util.concurrent.TimeUnit;
-
-
-
-
-public class NewsItemTest extends BaseTest{
+public class NewsItemTest extends BaseTest {
     @Test
     public void simpleTest(){
 
@@ -22,6 +13,11 @@ public class NewsItemTest extends BaseTest{
 //        EcoNewsPageBL ecoNewsPageBL = mainPageBL
 //                .getHeaderPageBL()
 //                .clickOnEcoNewsButton();
+
+//        System.out.println(new MainPageBL(driver)
+//                .getHeaderPageBL()
+//                .clickOnEcoNewsButton()
+//                .numbOfNewsItemOnThePage());
 
 
     }
