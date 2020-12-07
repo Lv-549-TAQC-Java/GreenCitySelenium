@@ -13,6 +13,7 @@ public class CommentComponent {
     WebElement editButton;
     WebElement deleteButton;
     WebElement replyButton;
+    WebElement likeButton;
     WebElement commentLike;
     List<CommentComponent> replies;
 
