@@ -1,5 +1,6 @@
 package com.greencity.pages;
 
+import com.greencity.pageelements.Button;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,8 +11,7 @@ public class SingInPage extends BasePage {
 
     private WebElement emailForm;
     private WebElement passwordForm;
-    private WebElement singIn;
-
+    private Button singIn;
 
     public SingInPage(WebDriver driver) {
         super(driver);
@@ -26,16 +26,7 @@ public class SingInPage extends BasePage {
         return passwordForm;
     }
 
-    public WebElement getSingIn() {
-        WebElement singIn = driver.findElement(By.cssSelector("form button"));
-        return singIn;
+    public Button getSingIn() {
+        return singIn = new Button(driver,"form button");
     }
-
-
-
-
-
-
 }
-
-
