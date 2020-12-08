@@ -1,11 +1,7 @@
 package com.greencity.pages.components;
 
-import com.greencity.pages.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -18,7 +14,7 @@ public class NewsItemComponent {
     private WebElement author;
 
     public NewsItemComponent(WebElement container) {
-      initElem(container);
+        initElem(container);
     }
 
     public WebElement getImg() {
@@ -46,13 +42,12 @@ public class NewsItemComponent {
     }
 
     private void initElem(WebElement container) {
-           img = container.findElement(By.cssSelector("div.list-image"));
-           categoryList = container.findElements(By.cssSelector("div.filter-tag > div"));
-           title = container.findElement(By.cssSelector("div.title-list"));
-           description = container.findElement(By.cssSelector("div.list-text"));
-           List<WebElement> userDataList = container.findElements(By.cssSelector("div.user-data-added-news > p"));
-           createdDate = userDataList.get(0);
-           author = userDataList.get(1);
+        img = container.findElement(By.cssSelector("div.list-image"));
+        categoryList = container.findElements(By.cssSelector("div.filter-tag > div"));
+        title = container.findElement(By.cssSelector("div.title-list"));
+        description = container.findElement(By.cssSelector("div.list-text"));
+        List<WebElement> userDataList = container.findElements(By.cssSelector("div.user-data-added-news > p"));
+        createdDate = userDataList.get(0);
+        author = userDataList.get(1);
     }
-
 }

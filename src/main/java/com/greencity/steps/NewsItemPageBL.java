@@ -6,18 +6,18 @@ import org.openqa.selenium.WebDriver;
 public class NewsItemPageBL {
     private NewsItemPage newsItemPage;
     protected WebDriver driver;
-    public NewsItemPageBL(WebDriver driver){
+
+    public NewsItemPageBL(WebDriver driver) {
         this.driver = driver;
         newsItemPage = new NewsItemPage(driver);
     }
 
-    public EcoNewsPageBL clickOnBackToNewsButton(){
+    public EcoNewsPageBL clickOnBackToNewsButton() {
         newsItemPage.getBackToNewsButton().click();
         return new EcoNewsPageBL(driver);
     }
 
-    public String getItemCategoryName(){
-       return newsItemPage.getItemCategoryTag().getTagName();
+    public String getItemCategoryName() {
+        return newsItemPage.getItemCategoryTag().getTagName();
     }
-
 }
