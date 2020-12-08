@@ -27,7 +27,7 @@ public class EcoNewsPageBL {
 
 
     public CreateNewsPageBL clickOnCreateNewsButton(){
-        createNewsPage.getCreateNews().click();
+        ecoNewsPage.getCreateNewsButton().click();
         return new CreateNewsPageBL(driver);
     }
 
