@@ -24,7 +24,7 @@ public class HeaderPage extends BasePage{
                 .findElement(By.cssSelector("* li.sign-up-link.ng-star-inserted > div"));
     }
 
-    public WebElement getSignInButton() {
+    public WebElement getSignIn() {
         return signInButton = driver
                 .findElement(By.cssSelector("* .sign-in-link>a"));
     }

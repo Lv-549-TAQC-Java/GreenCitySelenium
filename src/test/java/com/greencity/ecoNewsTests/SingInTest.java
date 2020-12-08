@@ -11,12 +11,12 @@ public class SingInTest extends BaseTest {
 
         MainPageBL mainPageBL = new MainPageBL(driver);
 
-       SingInPageBL ecoNewsPageBL = mainPageBL
-                .getHeaderPageBL()
-                .clickOnSignInButton()
-                .putEmail()
-                .putPassword()
-                .clickOnSingInButton();
+//       MainPageBL ecoNewsPageBL = mainPageBL
+//                .getHeaderPageBL()
+//                .clickOnSignInButton()
+//                .putEmail()
+//                .putPassword()
+//                .clickOnSingInButton();
 
     }
 

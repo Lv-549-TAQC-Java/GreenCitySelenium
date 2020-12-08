@@ -9,8 +9,10 @@ public class EcoNewsPageBL {
     private EcoNewsPage ecoNewsPage;
     private CreateNewsPage createNewsPage;
 
+
     public EcoNewsPageBL(WebDriver driver){
         this.driver = driver;
+        createNewsPage = new CreateNewsPage(driver);
         ecoNewsPage = new EcoNewsPage(driver);
     }
     public EcoNewsPageBL clickOnTagButton(){
@@ -20,12 +22,12 @@ public class EcoNewsPageBL {
         return new EcoNewsPageBL(driver);
     }
 
-    public EcoNewsPageBL clickOnEcoNewsButton(){
+
+
+    public CreateNewsPageBL clickOnCreateNewsButton(){
         createNewsPage.getCreateNews().click();
-        return new EcoNewsPageBL(driver);
+        return new CreateNewsPageBL(driver);
     }
-
-
 
     public int numbOfNewsItemOnThePage() {
         return ecoNewsPage.getNewsItemComponentList().getNumbOfNewsItemOnThePage();
