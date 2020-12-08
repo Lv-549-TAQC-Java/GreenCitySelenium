@@ -6,7 +6,7 @@ import com.greencity.steps.MainPageBL;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AuthorsName extends BaseTest{
+public class AuthorsNameTest extends BaseTest{
     @Test
             public void authorsName() {
         EcoNewsPageBL ecoNewsPageBL = new MainPageBL(driver).getHeaderPageBL().clickOnEcoNewsButton();
