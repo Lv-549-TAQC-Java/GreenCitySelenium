@@ -44,4 +44,10 @@ public class EcoNewsPageBL {
         }
         throw new RuntimeException("there is no news on the page with such a title-" + title);
     }
+
+    public CreateNewsPageBL clickOnCreateNewsButton(){
+        ecoNewsPage.getCreateNewsButton().click();
+        return new CreateNewsPageBL(driver);
+    }
+
 }
