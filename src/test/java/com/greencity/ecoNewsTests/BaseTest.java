@@ -10,14 +10,9 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
     protected static WebDriver driver;
 
-//    @BeforeSuite
-//    public void setup() {
-//        DriverRepository.downloadWebDriver();
-//    }
-
     @BeforeClass
     public void setUpClass() {
-        String webDriverPath =  System.getenv("ChromWebdriver");
+        String webDriverPath = System.getenv("ChromeWebDriver");
         System.out.println("webdriver" + webDriverPath);
         System.setProperty("webdriver.chrome.driver", webDriverPath);
         driver = new ChromeDriver();
@@ -27,10 +22,9 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void tearDownClass(){
+    public void tearDownClass() {
         driver.close();
         driver.quit();
 
     }
-
 }
