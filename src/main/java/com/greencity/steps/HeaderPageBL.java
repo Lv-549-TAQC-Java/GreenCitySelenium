@@ -20,8 +20,8 @@ public class HeaderPageBL {
         return new EcoNewsPageBL(driver);
     }
 
-    public SingInPageBL clickOnSignIn() {
-        headerPage.getSignIn().click();
+    public SingInPageBL clickOnSignInButton() {
+        headerPage.getSignInButton().click();
         return new SingInPageBL(driver);
     }
 }

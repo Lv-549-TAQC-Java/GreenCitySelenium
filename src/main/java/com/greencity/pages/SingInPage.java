@@ -10,7 +10,7 @@ public class SingInPage extends BasePage {
 
     private WebElement emailForm;
     private WebElement passwordForm;
-    private WebElement singInButton;
+    private WebElement singIn;
 
 
     public SingInPage(WebDriver driver) {
@@ -26,9 +26,9 @@ public class SingInPage extends BasePage {
         return passwordForm;
     }
 
-    public WebElement getSingInButton() {
-        WebElement singInButton = driver.findElement(By.cssSelector("form button"));
-        return singInButton;
+    public WebElement getSingIn() {
+        WebElement singIn = driver.findElement(By.cssSelector("form button"));
+        return singIn;
     }
 
 

@@ -16,7 +16,7 @@ public class SingInTest extends BaseTest {
 //                .clickOnSignInButton()
 //                .putEmail()
 //                .putPassword()
-//                .clickOnSingInButton();
+//                .clickOnSingIn();
 
     }
 

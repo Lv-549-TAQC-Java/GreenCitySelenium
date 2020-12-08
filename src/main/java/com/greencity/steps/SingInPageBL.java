@@ -38,8 +38,8 @@ public class SingInPageBL {
         return new SingInPageBL(driver);
     }
 
-    public HeaderPageBL clickOnSingInButton(){
-        singInPage.getSingInButton().click();
+    public HeaderPageBL clickOnSingIn(){
+        singInPage.getSingIn().click();
         return new HeaderPageBL(driver);
     }
 
