@@ -12,8 +12,8 @@ public class Button extends BaseElement{
         this.webElement.click();
     }
 
-    public Button isDisplayed(){
-        this.webElement.isDisplayed();
-        return this;
+    public void isDisplayed(){
+        webElement.isDisplayed();
     }
+
 }
