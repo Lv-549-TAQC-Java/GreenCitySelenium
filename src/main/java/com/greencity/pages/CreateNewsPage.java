@@ -1,38 +1,43 @@
 package com.greencity.pages;
 
 import com.greencity.locators.CreateNewsPageLocators;
-import org.openqa.selenium.By;
+import com.greencity.pageelements.Button;
+import com.greencity.pageelements.InputTextField;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 
 public class CreateNewsPage extends BasePage{
-    private CreateNewsPageLocators contentNews;
-    private CreateNewsPageLocators titleNews;
-    private CreateNewsPageLocators cancelButton;
-    private CreateNewsPageLocators previewButton;
-    private CreateNewsPageLocators publishButton;
+    private InputTextField contentNews;
+    private InputTextField titleNews;
+    private Button cancelButton;
+    private Button previewButton;
+    private Button publishButton;
 
     public CreateNewsPage(WebDriver driver) {
         super(driver);
     }
 
-    public CreateNewsPageLocators getTitleNews() {
-        return titleNews = CreateNewsPageLocators.TITLE_NEWS;
+    public InputTextField getTitleNews() {
+
+        return titleNews = (driver, CreateNewsPageLocators.TITLE_NEWS);
     }
 
-    public CreateNewsPageLocators getContentNews() {
-        return contentNews = CreateNewsPageLocators.CONTENT_NEWS;
+    public InputTextField getContentNews() {
+
+        return contentNews = (driver, CreateNewsPageLocators.CONTENT_NEWS);
     }
 
-    public CreateNewsPageLocators getCancelButton() {
-        return cancelButton = CreateNewsPageLocators.CANCEL_BUTTON;
+    public Button getCancelButton() {
+        return cancelButton = (driver, CreateNewsPageLocators.CANCEL_BUTTON);
     }
 
-    public CreateNewsPageLocators getPreviewButton() {
-        return previewButton = CreateNewsPageLocators.PREVIEW_BUTTON;
+    public Button getPreviewButton() {
+
+        return previewButton = (driver, CreateNewsPageLocators.PREVIEW_BUTTON);
     }
 
-    public CreateNewsPageLocators getPublishButton() {
-        return publishButton = CreateNewsPageLocators.PUBLISH_BUTTON;
+    public Button getPublishButton() {
+
+        return publishButton = (driver, CreateNewsPageLocators.PUBLISH_BUTTON);
     }
 }
