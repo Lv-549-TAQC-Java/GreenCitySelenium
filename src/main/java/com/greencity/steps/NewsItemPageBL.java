@@ -18,6 +18,6 @@ public class NewsItemPageBL {
     }
 
     public String getItemCategoryName() {
-        return newsItemPage.getItemCategoryTag().getTagName();
+        return newsItemPage.getItemCategoryTag().getText();
     }
 }
