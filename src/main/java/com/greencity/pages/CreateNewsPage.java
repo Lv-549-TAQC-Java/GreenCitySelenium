@@ -19,25 +19,25 @@ public class CreateNewsPage extends BasePage{
 
     public InputTextField getTitleNews() {
 
-        return titleNews = (driver, CreateNewsPageLocators.TITLE_NEWS);
+        return titleNews = new InputTextField(driver, CreateNewsPageLocators.TITLE_NEWS);
     }
 
     public InputTextField getContentNews() {
 
-        return contentNews = (driver, CreateNewsPageLocators.CONTENT_NEWS);
+        return contentNews = new InputTextField(driver, CreateNewsPageLocators.CONTENT_NEWS);
     }
 
     public Button getCancelButton() {
-        return cancelButton = (driver, CreateNewsPageLocators.CANCEL_BUTTON);
+        return cancelButton =  new Button(driver, CreateNewsPageLocators.CANCEL_BUTTON);
     }
 
     public Button getPreviewButton() {
 
-        return previewButton = (driver, CreateNewsPageLocators.PREVIEW_BUTTON);
+        return previewButton =  new Button(driver, CreateNewsPageLocators.PREVIEW_BUTTON);
     }
 
     public Button getPublishButton() {
 
-        return publishButton = (driver, CreateNewsPageLocators.PUBLISH_BUTTON);
+        return publishButton = new Button(driver, CreateNewsPageLocators.PUBLISH_BUTTON);
     }
 }
