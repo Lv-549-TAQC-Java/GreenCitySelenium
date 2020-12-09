@@ -1,6 +1,7 @@
 package com.greencity.pages;
 
 import com.greencity.pages.components.NewsItemComponent;
+import com.greencity.utils.ScrollPageDown;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,7 @@ public class EcoNewsPage extends BasePage {
 
     public List<NewsItemComponent> getNewsList() {
         newsList = new ArrayList<NewsItemComponent>();
+        (new ScrollPageDown(driver)).scrollToEndOfPage();
         List<WebElement> itemWebElemList = driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
         for (WebElement item : itemWebElemList) {
             newsList.add(new NewsItemComponent(item));
