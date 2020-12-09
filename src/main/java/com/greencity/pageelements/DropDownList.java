@@ -1,5 +1,6 @@
 package com.greencity.pageelements;
 
+import com.greencity.locators.BaseLocator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +10,16 @@ import java.util.List;
 
 public class DropDownList extends BaseElement {
 
-    public DropDownList(WebDriver driver, String cssSelector) {
-        super(driver, cssSelector);
+    public DropDownList(WebDriver driver, BaseLocator locator) {
+        super(driver,locator );
+    }
+
+    public DropDownList(WebElement webElement, BaseLocator locator) {
+        super(webElement, locator);
+    }
+
+    public DropDownList(WebElement webElement) {
+        super(webElement);
     }
 
     public void click(){
