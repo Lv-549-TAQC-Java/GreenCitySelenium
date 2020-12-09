@@ -14,13 +14,13 @@ public class SingInPage extends BasePage {
     public SingInPage(WebDriver driver) {
         super(driver);
     }
-    public InputTextField getEmailForm() {
-        return emailForm = (driver, SingInPageLocators.EMAIL_FORM);
 
+    public InputTextField getEmailForm() {
+        return emailForm = new InputTextField(driver, SingInPageLocators.EMAIL_FORM);
     }
 
     public InputTextField getPasswordForm() {
-        return passwordForm = (driver, SingInPageLocators.PASSWORD_FORM);
+        return passwordForm = new InputTextField(driver, SingInPageLocators.PASSWORD_FORM);
     }
 
     public Button getSingIn() {
