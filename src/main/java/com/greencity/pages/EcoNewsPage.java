@@ -35,8 +35,8 @@ public class EcoNewsPage extends BasePage {
         return tagButtons;
     }
 
-    public WebElement getCreateNews() {
+    public WebElement getCreateNewsButton() {
         return CreateNews = driver
-                .findElement(By.cssSelector("a div"));
+                .findElement(By.id("create-button"));
     }
 }
