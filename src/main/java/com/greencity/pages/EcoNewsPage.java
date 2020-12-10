@@ -1,8 +1,10 @@
 package com.greencity.pages;
 
+import com.greencity.locators.EcoNewsPageLocators;
+import com.greencity.pageelements.Button;
+import com.greencity.pageelements.TextField;
 import com.greencity.pages.components.NewsItemComponent;
 import com.greencity.utils.ScrollPageDown;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -10,8 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EcoNewsPage extends BasePage {
-    private WebElement tagButtons;
-    private WebElement CreateNews;
+    private Button createNews;
+    private List<Button> filterTegList;
+    private TextField countItemsFound;
     private List<NewsItemComponent> newsList;
 
     public EcoNewsPage(WebDriver driver) {
@@ -19,24 +22,28 @@ public class EcoNewsPage extends BasePage {
     }
 
     public List<NewsItemComponent> getNewsList() {
-        newsList = new ArrayList<NewsItemComponent>();
+        newsList = new ArrayList<>();
         (new ScrollPageDown(driver)).scrollToEndOfPage();
-        List<WebElement> itemWebElemList = driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
+        List<WebElement> itemWebElemList = driver.findElements(EcoNewsPageLocators.NEWS_ITEM.getPath());
         for (WebElement item : itemWebElemList) {
             newsList.add(new NewsItemComponent(item));
         }
         return newsList;
     }
 
-    public List<WebElement> getTagButtons() {
-        List<WebElement> tagButtons = driver
-                .findElements(By.cssSelector("a li"));
-        System.out.println("tagButtons size:" + tagButtons.size());
-        return tagButtons;
+    public Button getCreateNews() {
+        return createNews = new Button(driver, EcoNewsPageLocators.CREATE_NEWS);
     }
 
-    public WebElement getCreateNewsButton() {
-        return CreateNews = driver
-                .findElement(By.id("create-button"));
+    public List<Button> getFilterTegList() {
+        List<WebElement> webElemTegFilter = driver.findElements(EcoNewsPageLocators.FILTER_TEG.getPath());
+        for (WebElement element : webElemTegFilter) {
+            filterTegList.add(new Button(element));
+        }
+        return filterTegList;
+    }
+
+    public TextField getCountItemsFound() {
+        return countItemsFound = new TextField(driver, EcoNewsPageLocators.TITLE_ITEMS_FOUND);
     }
 }

@@ -3,11 +3,15 @@ package com.greencity.locators;
 import org.openqa.selenium.By;
 
 public enum EcoNewsPageLocators implements BaseLocator {
+    CREATE_NEWS(By.id("create-button")),
+    FILTER_TEG(By.className("custom-chip")),
+    TITLE_ITEMS_FOUND(By.cssSelector("app-remaining-count > p")),
+    NEWS_ITEM(By.className("gallery-view-li-active"));
 
-    TITLE_ITEMS_FOUND(By.cssSelector("app-remaining-count > p"));
+
     private By path;
 
-    EcoNewsPageLocators(By path){
+    EcoNewsPageLocators(By path) {
         this.path = path;
     }
 

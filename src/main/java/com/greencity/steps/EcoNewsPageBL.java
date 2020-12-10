@@ -1,5 +1,6 @@
 package com.greencity.steps;
 
+import com.greencity.pageelements.Button;
 import com.greencity.pages.CreateNewsPage;
 import com.greencity.pages.EcoNewsPage;
 import com.greencity.pages.components.NewsItemComponent;
@@ -7,27 +8,31 @@ import com.greencity.utils.ScrollPageDown;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.util.List;
+
 public class EcoNewsPageBL {
     protected WebDriver driver;
     private EcoNewsPage ecoNewsPage;
     private CreateNewsPage createNewsPage;
 
-    public EcoNewsPageBL(WebDriver driver){
+    public EcoNewsPageBL(WebDriver driver) {
         this.driver = driver;
         createNewsPage = new CreateNewsPage(driver);
         ecoNewsPage = new EcoNewsPage(driver);
     }
-    public EcoNewsPageBL clickOnTagButton(){
-        ecoNewsPage.getTagButtons().get(0).click();
-        ecoNewsPage.getTagButtons().get(1).click();
-        ecoNewsPage.getTagButtons().get(2).click();
+
+    public EcoNewsPageBL clickOnFilterTagButton(FiltersTeg filterTeg) {
+        List<Button> filterTegList = ecoNewsPage.getFilterTegList();
+        for (Button teg : filterTegList)
+            if (teg.getText().equals(filterTeg)) {
+                teg.click();
+            }
         return new EcoNewsPageBL(driver);
     }
 
 
-
-    public CreateNewsPageBL clickOnCreateNewsButton(){
-        ecoNewsPage.getCreateNewsButton().click();
+    public CreateNewsPageBL clickOnCreateNewsButton() {
+        ecoNewsPage.getCreateNews().click();
         return new CreateNewsPageBL(driver);
     }
 
