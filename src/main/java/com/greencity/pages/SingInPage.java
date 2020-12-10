@@ -27,6 +27,7 @@ public class SingInPage extends BasePage {
     }
 
     public Button getSingIn() {
-        return singIn = new Button(driver,"form button");
+        return singIn;
+        //= new Button(driver,"form button");
     }
 }

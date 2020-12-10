@@ -4,6 +4,7 @@ import com.greencity.pages.CreateNewsPage;
 import com.greencity.pages.EcoNewsPage;
 import com.greencity.pages.components.NewsItemComponent;
 import com.greencity.utils.ScrollPageDown;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -59,5 +60,11 @@ public class EcoNewsPageBL {
             }
         }
         throw new RuntimeException("there is no news on the page with such a title-" + title);
+    }
+
+    //need to delete
+    public NewsItemPageBL clickOnItemNews(){
+        driver.findElement(By.cssSelector("li:nth-of-type(1) > .ng-star-inserted > .list-gallery")).click();
+        return new NewsItemPageBL(driver);
     }
 }

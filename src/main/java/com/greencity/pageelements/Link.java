@@ -24,4 +24,8 @@ public class Link extends BaseElement{
     public String getLinkPath(){
         return webElement.getAttribute("href");
     }
+
+    public String getAttributeName(){
+        return webElement.getAttribute("alt");
+    }
 }
