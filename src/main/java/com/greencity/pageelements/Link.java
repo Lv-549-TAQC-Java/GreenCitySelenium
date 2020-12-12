@@ -4,17 +4,16 @@ import com.greencity.locators.BaseLocator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Button extends BaseElement{
-
-    public Button(WebDriver driver, BaseLocator locator) {
-        super(driver,locator );
+public class Link extends BaseElement{
+    public Link(WebDriver driver, BaseLocator locator) {
+        super(driver, locator);
     }
 
-    public Button(WebElement webElement, BaseLocator locator) {
+    public Link(WebElement webElement, BaseLocator locator) {
         super(webElement, locator);
     }
 
-    public Button(WebElement webElement) {
+    public Link(WebElement webElement) {
         super(webElement);
     }
 
@@ -22,8 +21,7 @@ public class Button extends BaseElement{
         this.webElement.click();
     }
 
-    public void isDisplayed(){
-        webElement.isDisplayed();
+    public String getLinkPath(){
+        return webElement.getAttribute("href");
     }
-
 }

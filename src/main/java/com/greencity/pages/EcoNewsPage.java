@@ -1,56 +1,42 @@
 package com.greencity.pages;
 
-import com.greencity.pages.components.NewsItemComponentList;
+import com.greencity.pages.components.NewsItemComponent;
+import com.greencity.utils.ScrollPageDown;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class EcoNewsPage extends BasePage{
+public class EcoNewsPage extends BasePage {
     private WebElement tagButtons;
     private WebElement CreateNews;
-    private NewsItemComponentList newsItemComponentList;
+    private List<NewsItemComponent> newsList;
 
     public EcoNewsPage(WebDriver driver) {
         super(driver);
     }
 
+    public List<NewsItemComponent> getNewsList() {
+        newsList = new ArrayList<NewsItemComponent>();
+        (new ScrollPageDown(driver)).scrollToEndOfPage();
+        List<WebElement> itemWebElemList = driver.findElements(By.cssSelector("app-news-list-gallery-view > div"));
+        for (WebElement item : itemWebElemList) {
+            newsList.add(new NewsItemComponent(item));
+        }
+        return newsList;
+    }
+
     public List<WebElement> getTagButtons() {
-         List<WebElement> tagButtons = driver
+        List<WebElement> tagButtons = driver
                 .findElements(By.cssSelector("a li"));
         System.out.println("tagButtons size:" + tagButtons.size());
         return tagButtons;
     }
 
-    public WebElement getCreateNews() {
+    public WebElement getCreateNewsButton() {
         return CreateNews = driver
-                .findElement(By.cssSelector("a div"));
+                .findElement(By.id("create-button"));
     }
-
-
-    public NewsItemComponentList getNewsItemComponentList() {
-        return new NewsItemComponentList(driver);
-    }
-
-    public EcoNewsPage scrollToEndOfPage(){
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        while (true) {
-            try {
-                driver.findElement(By.cssSelector("div.description__title > h2"));
-                break;
-            } catch (Exception exception) {
-                ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        return new EcoNewsPage(driver);
-    }
-
 }
