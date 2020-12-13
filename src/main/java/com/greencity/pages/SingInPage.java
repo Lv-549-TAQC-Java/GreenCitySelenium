@@ -1,33 +1,29 @@
 package com.greencity.pages;
 
+import com.greencity.locators.SingInPageLocators;
 import com.greencity.pageelements.Button;
-import org.openqa.selenium.By;
+import com.greencity.pageelements.InputTextField;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-
 
 public class SingInPage extends BasePage {
 
-    private WebElement emailForm;
-    private WebElement passwordForm;
+    private InputTextField emailForm;
+    private InputTextField passwordForm;
     private Button singIn;
 
     public SingInPage(WebDriver driver) {
         super(driver);
     }
-    public WebElement getEmailForm() {
-        WebElement emailForm = driver.findElement(By.id("email"));
-        return emailForm;
+
+    public InputTextField getEmailForm() {
+        return emailForm = new InputTextField(driver, SingInPageLocators.EMAIL_FORM);
     }
 
-    public WebElement getPasswordForm() {
-        WebElement passwordForm = driver.findElement(By.id("password"));
-        return passwordForm;
+    public InputTextField getPasswordForm() {
+        return passwordForm = new InputTextField(driver, SingInPageLocators.PASSWORD_FORM);
     }
 
     public Button getSingIn() {
-        return singIn;
-        //= new Button(driver,"form button");
+        return singIn = new Button(driver, SingInPageLocators.SING_IN);
     }
 }
