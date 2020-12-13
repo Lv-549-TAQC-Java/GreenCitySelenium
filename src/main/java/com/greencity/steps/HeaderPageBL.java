@@ -7,8 +7,7 @@ public class HeaderPageBL {
     private HeaderPage headerPage;
     protected WebDriver driver;
 
-    public HeaderPageBL(WebDriver driver)
-    {
+    public HeaderPageBL(WebDriver driver){
         this.driver = driver;
         headerPage = new HeaderPage(driver);
     }
@@ -20,5 +19,10 @@ public class HeaderPageBL {
     public EcoNewsPageBL clickOnEcoNewsButton(){
         headerPage.getEcoNewsButton().click();
         return new EcoNewsPageBL(driver);
+    }
+
+    public SingInPageBL clickOnSignInButton() {
+        headerPage.getSignInButton().click();
+        return new SingInPageBL(driver);
     }
 }

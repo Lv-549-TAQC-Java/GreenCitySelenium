@@ -1,56 +1,49 @@
 package com.greencity.pages;
 
-import com.greencity.pages.components.NewsItemComponentList;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import com.greencity.locators.EcoNewsPageLocators;
+import com.greencity.pageelements.Button;
+import com.greencity.pageelements.TextField;
+import com.greencity.pages.components.NewsItemComponent;
+import com.greencity.utils.ScrollPageDown;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class EcoNewsPage extends BasePage{
-    private WebElement tagButtons;
-    private WebElement CreateNews;
-    private NewsItemComponentList newsItemComponentList;
+public class EcoNewsPage extends BasePage {
+    private Button createNews;
+    private List<Button> filterTegList;
+    private TextField countItemsFound;
+    private List<NewsItemComponent> newsList;
 
     public EcoNewsPage(WebDriver driver) {
         super(driver);
     }
 
-    public List<WebElement> getTagButtons() {
-         List<WebElement> tagButtons = driver
-                .findElements(By.cssSelector("a li"));
-        System.out.println("tagButtons size:" + tagButtons.size());
-        return tagButtons;
-    }
-
-    public WebElement getCreateNews() {
-        return CreateNews = driver
-                .findElement(By.cssSelector("a div"));
-    }
-
-
-    public NewsItemComponentList getNewsItemComponentList() {
-        return new NewsItemComponentList(driver);
-    }
-
-    public EcoNewsPage scrollToEndOfPage(){
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        while (true) {
-            try {
-                driver.findElement(By.cssSelector("div.description__title > h2"));
-                break;
-            } catch (Exception exception) {
-                ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+    public List<NewsItemComponent> getNewsList() {
+        newsList = new ArrayList<>();
+        (new ScrollPageDown(driver)).scrollToEndOfPage();
+        List<WebElement> itemWebElemList = driver.findElements(EcoNewsPageLocators.NEWS_ITEM.getPath());
+        for (WebElement item : itemWebElemList) {
+            newsList.add(new NewsItemComponent(item));
         }
-        return new EcoNewsPage(driver);
+        return newsList;
     }
 
+    public Button getCreateNews() {
+        return createNews = new Button(driver, EcoNewsPageLocators.CREATE_NEWS);
+    }
+
+    public List<Button> getFilterTegList() {
+        List<WebElement> webElemTegFilter = driver.findElements(EcoNewsPageLocators.FILTER_TEG.getPath());
+        for (WebElement element : webElemTegFilter) {
+            filterTegList.add(new Button(element));
+        }
+        return filterTegList;
+    }
+
+    public TextField getCountItemsFound() {
+        return countItemsFound = new TextField(driver, EcoNewsPageLocators.TITLE_ITEMS_FOUND);
+    }
 }
