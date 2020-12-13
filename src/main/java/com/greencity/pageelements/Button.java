@@ -26,4 +26,8 @@ public class Button extends BaseElement{
         webElement.isDisplayed();
     }
 
+    public String getText(){
+       return webElement.getText();
+    }
+
 }

@@ -7,13 +7,11 @@ import org.testng.annotations.Test;
 public class tagTest extends BaseTest {
     @Test
     public void testName() {
-
-        MainPageBL mainPageBL = new MainPageBL(driver);
-
-        EcoNewsPageBL ecoNewsPageBL = mainPageBL
-                .getHeaderPageBL()
-                .clickOnEcoNewsButton()
-                .clickOnTagButton();
+//        MainPageBL mainPageBL = new MainPageBL(driver);
+//        EcoNewsPageBL ecoNewsPageBL = mainPageBL
+//                .getHeaderPageBL()
+//                .clickOnEcoNewsButton()
+//                .clickOnTagButton();
     }
 
 
