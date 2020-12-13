@@ -67,9 +67,15 @@ public class EcoNewsPageBL {
         throw new RuntimeException("there is no news on the page with such a title-" + title);
     }
 
-    //need to delete
-    public NewsItemPageBL clickOnItemNews(){
-        driver.findElement(By.cssSelector("li:nth-of-type(1) > .ng-star-inserted > .list-gallery")).click();
+    public NewsItemPageBL clickOnItemNewsById(int index){
+        findNewsItemByIndex(index).click();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         return new NewsItemPageBL(driver);
     }
 }

@@ -16,7 +16,7 @@ public class SocialNetworkingTest extends BaseTest{
         SocialNetworkingSitePageBL socialNetworkingSitePageBL = mainPageBL
                 .getHeaderPageBL()
                 .clickOnEcoNewsButton()
-                .clickOnItemNews()
+                .clickOnItemNewsById(0)
                 .clickOnSocialNetworkingSitesLink("twitter");
         socialNetworkingSitePageBL.switchWindow();
         socialNetworkingSitePageBL.verifyThatSiteTitleIsCorrect();
