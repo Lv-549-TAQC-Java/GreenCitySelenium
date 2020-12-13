@@ -65,4 +65,16 @@ public class EcoNewsPageBL {
         }
         throw new RuntimeException("there is no news on the page with such a title-" + title);
     }
+
+    public NewsItemPageBL clickOnItemNewsById(int index){
+        findNewsItemByIndex(index).click();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new NewsItemPageBL(driver);
+    }
 }

@@ -24,13 +24,13 @@ public class NewsItemPageBL {
 
     public void verifyItemCategoryName(){
        String actualItemCategoryName = newsItemPage.getItemCategoryTag().getText();
-       String correctItemCategoryName = "News";
+       String correctItemCategoryName = "Education";
         Assert.assertEquals(actualItemCategoryName,correctItemCategoryName);
     }
 
     public void verifyItemDate(){
         String actualItemDate = newsItemPage.getDateInfo().getText();
-        String correctItemDate = "Dec 5, 2020";
+        String correctItemDate = "Dec 9, 2020";
         Assert.assertEquals(actualItemDate,correctItemDate);
     }
 
