@@ -1,5 +1,7 @@
 package com.greencity.pages;
 
+
+import com.greencity.locators.HeaderPageLocators;
 import com.greencity.pageelements.Button;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +18,7 @@ public class HeaderPage extends BasePage{
     }
 
     public Button getEcoNewsButton(){
-        return ecoNewsButton = new Button(driver,".navigation-menu-left [href='\\/GreenCityClient\\/news']");
+        return ecoNewsButton = new Button(driver, HeaderPageLocators.ECO_NEWS_BUTTON);
     }
 
     public WebElement getSignUpButton() {

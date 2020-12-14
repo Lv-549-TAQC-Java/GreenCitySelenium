@@ -28,13 +28,13 @@ public class SingInPageBL {
 
     public SingInPageBL putEmail(){
         singInPage.getEmailForm().clear();
-        singInPage.getEmailForm().sendKeys("mishakaspar@gmail.com");
+        singInPage.getEmailForm().sendText("mishakaspar@gmail.com");
         return new SingInPageBL(driver);
     }
 
     public SingInPageBL putPassword(){
         singInPage.getPasswordForm().clear();
-        singInPage.getPasswordForm().sendKeys(getPassword());
+        singInPage.getPasswordForm().sendText(getPassword());
         return new SingInPageBL(driver);
     }
 
@@ -42,6 +42,4 @@ public class SingInPageBL {
         singInPage.getSingIn().click();
         return new HeaderPageBL(driver);
     }
-
-
 }
