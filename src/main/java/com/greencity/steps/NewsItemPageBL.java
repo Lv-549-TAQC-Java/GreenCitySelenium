@@ -4,8 +4,8 @@ import com.greencity.pages.NewsItemPage;
 import org.openqa.selenium.WebDriver;
 
 public class NewsItemPageBL {
-    private NewsItemPage newsItemPage;
     protected WebDriver driver;
+    private NewsItemPage newsItemPage;
 
     public NewsItemPageBL(WebDriver driver) {
         this.driver = driver;
@@ -19,5 +19,9 @@ public class NewsItemPageBL {
 
     public String getItemCategoryName() {
         return newsItemPage.getItemCategoryTag().getText();
+    }
+
+    public String getItemAuthorName() {
+        return newsItemPage.getAuthorInfo().getText();
     }
 }
