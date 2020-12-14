@@ -10,7 +10,8 @@ public enum NewsItemPageLocators implements  BaseLocator{
     AUTHOR_INFO(By.cssSelector(".news-info-author")),
     IMAGE(By.cssSelector("img[alt='news-image']")),
     TEXT_CONTENT(By.cssSelector(".news-text-content.word-wrap")),
-    SOURCE_LINK(By.cssSelector(".source-text.word-wrap"));
+    SOURCE_LINK(By.cssSelector(".source-text.word-wrap")),
+    SOCIAL_NETWORKING_SITES(By.className("news-links-img"));
 
     private By path;
 
