@@ -20,4 +20,8 @@ public class NewsItemPageBL {
     public String getItemCategoryName() {
         return newsItemPage.getItemCategoryTag().getText();
     }
+
+    public String getCreatedDate(){
+        return newsItemPage.getDateInfo().getText();
+    }
 }
