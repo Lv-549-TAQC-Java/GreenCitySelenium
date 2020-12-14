@@ -12,7 +12,7 @@ public class HeaderPageBL {
         headerPage = new HeaderPage(driver);
     }
     public RegisterPageBL clickOnSignUpButton() {
-        headerPage.getSignUpButton().click();
+        headerPage.getSignUpLink().click();
         return new RegisterPageBL(driver);
     }
     public EcoNewsPageBL clickOnEcoNewsButton(){
@@ -21,7 +21,7 @@ public class HeaderPageBL {
     }
 
     public SingInPageBL clickOnSignInButton() {
-        headerPage.getSignInButton().click();
+        headerPage.getSignInLink().click();
         return new SingInPageBL(driver);
     }
 }

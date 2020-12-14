@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public enum HeaderPageLocators implements BaseLocator{
 
     ECO_NEWS_BUTTON(By.cssSelector(".navigation-menu-left [href='\\/GreenCityClient\\/news']")),
-    SIGN_IN(By.cssSelector("* .sign-in-link>a")),
+    SIGN_IN(By.cssSelector(".tertiary-global-button .ng-star-inserted")),
     SIGN_UP(By.cssSelector("* li.sign-up-link.ng-star-inserted > div"));
 
 
