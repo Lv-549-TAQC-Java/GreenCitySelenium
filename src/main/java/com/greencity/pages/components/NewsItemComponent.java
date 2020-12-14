@@ -12,9 +12,10 @@ public class NewsItemComponent {
     private WebElement description;
     private WebElement createdDate;
     private WebElement author;
-
+    private final WebElement container;
     public NewsItemComponent(WebElement container) {
-        initElem(container);
+        this.container=container;
+        initElem();
     }
 
     public WebElement getImg() {
@@ -41,7 +42,11 @@ public class NewsItemComponent {
         return author;
     }
 
-    private void initElem(WebElement container) {
+    public void click(){
+       container.click();
+    }
+
+    private void initElem() {
         img = container.findElement(By.cssSelector("div.list-image"));
         categoryList = container.findElements(By.cssSelector("div.filter-tag > div"));
         title = container.findElement(By.cssSelector("div.title-list"));
