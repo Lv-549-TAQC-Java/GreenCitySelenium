@@ -20,6 +20,14 @@ public class NewsItemPageBL {
         newsItemPage.getBackToNewsButton().click();
         return new EcoNewsPageBL(driver);
     }
+    public NewsItemPageBL putComment(){
+        newsItemPage.getCreateComment().getCommentText().sendKeys("hello");
+        return new NewsItemPageBL(driver);
+    }
+    public NewsItemPageBL clickOnCommentButton(){
+        newsItemPage.getCreateComment().getCommentButton().click();
+        return new NewsItemPageBL(driver);
+    }
 
     public String getItemCategoryName() {
         return newsItemPage.getItemCategoryTag().getText();
