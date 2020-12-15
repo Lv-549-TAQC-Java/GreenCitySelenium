@@ -24,7 +24,7 @@ public class EcoNewsPageBL {
     public EcoNewsPageBL clickOnFilterTagButton(FiltersTeg filterTeg) {
         List<Button> filterTegList = ecoNewsPage.getFilterTegList();
         for (Button teg : filterTegList)
-            if (teg.getText().equals(filterTeg)) {
+            if (teg.getText().equals(filterTeg.getFilterTeg())) {
                 teg.click();
             }
         return new EcoNewsPageBL(driver);
@@ -66,7 +66,7 @@ public class EcoNewsPageBL {
         throw new RuntimeException("there is no news on the page with such a title-" + title);
     }
 
-    public NewsItemPageBL clickOnItemNewsById(int index){
+    public NewsItemPageBL clickOnItemNewsById(int index) {
         findNewsItemByIndex(index).click();
 
         try {
