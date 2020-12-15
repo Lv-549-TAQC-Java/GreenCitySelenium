@@ -3,6 +3,7 @@ package com.greencity.ecoNewsTests;
 import com.greencity.steps.EcoNewsPageBL;
 import com.greencity.steps.MainPageBL;
 import com.greencity.steps.NewsItemPageBL;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -24,17 +25,9 @@ public class NewsItemTest extends BaseTest {
                 .getHeaderPageBL()
                 .clickOnEcoNewsButton()
                 .clickOnItemNewsById(0);
-        newsItemPageBL.verifyItemCategoryName();
-    }
-
-    @Test
-    public void verifyThatDateIsCorrect(){
-        MainPageBL mainPageBL = new MainPageBL(driver);
-        NewsItemPageBL ecoNewsPageBL = mainPageBL
-                .getHeaderPageBL()
-                .clickOnEcoNewsButton()
-                .clickOnItemNewsById(0);
-        ecoNewsPageBL.verifyItemDate();
+        String actualItemCategoryName = newsItemPageBL. getItemCategoryName();
+        String correctItemCategoryName = "Education";
+        Assert.assertEquals(actualItemCategoryName,correctItemCategoryName);
     }
 }
 
