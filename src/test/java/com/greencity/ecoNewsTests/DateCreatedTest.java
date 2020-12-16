@@ -20,6 +20,5 @@ public class DateCreatedTest extends BaseTest {
         String s1 = newsItemPageBL.getCreatedDate();
         System.out.println(s1);
         Assert.assertEquals(s1, s);
-
     }
 }
