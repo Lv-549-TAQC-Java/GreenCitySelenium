@@ -18,6 +18,11 @@ public class NewsItemPageBL {
 
     public EcoNewsPageBL clickOnBackToNewsButton() {
         newsItemPage.getBackToNewsButton().click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return new EcoNewsPageBL(driver);
     }
 

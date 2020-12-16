@@ -4,16 +4,17 @@ import com.greencity.steps.EcoNewsPageBL;
 import com.greencity.steps.MainPageBL;
 import org.testng.annotations.Test;
 
-public class NewsItemTest extends BaseTest {
+public class BackToNewsPageTest extends BaseTest {
 
     @Test
-    public void showListOfTheEcoNewsItems() {
+    public void check() {
         MainPageBL mainPageBL = new MainPageBL(driver);
-
-        EcoNewsPageBL ecoNewsPageBL = mainPageBL
+        EcoNewsPageBL newsItemPageBL = mainPageBL
                 .getHeaderPageBL()
-                .clickOnEcoNewsButton();
-        ecoNewsPageBL.verifySearchOfTheList();
-    }
-}
+                .clickOnEcoNewsButton()
+                .clickOnItemNewsById(0)
+                .clickOnBackToNewsButton();
 
+    }
+
+}
