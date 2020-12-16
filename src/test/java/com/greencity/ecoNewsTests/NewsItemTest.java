@@ -24,9 +24,9 @@ public class NewsItemTest extends BaseTest {
         NewsItemPageBL newsItemPageBL = mainPageBL
                 .getHeaderPageBL()
                 .clickOnEcoNewsButton()
-                .clickOnItemNewsById(0);
-        String actualItemCategoryName = newsItemPageBL. getItemCategoryName();
-        String correctItemCategoryName = "Education";
+                .clickOnItemNewsById(1);
+        String actualItemCategoryName = newsItemPageBL. getItemCategoryName().replaceAll("\n"," ");
+        String correctItemCategoryName = "Events Education Initiatives";
         Assert.assertEquals(actualItemCategoryName,correctItemCategoryName);
     }
 }
