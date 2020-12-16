@@ -26,7 +26,7 @@ public class EcoNewsPageBL {
     public EcoNewsPageBL clickOnFilterTagButton(FiltersTeg filterTeg) {
         List<Button> filterTegList = ecoNewsPage.getFilterTegList();
         for (Button teg : filterTegList)
-            if (teg.getText().equals(filterTeg)) {
+            if (teg.getText().equals(filterTeg.getFilterTeg())) {
                 teg.click();
             }
         return new EcoNewsPageBL(driver);
@@ -70,6 +70,18 @@ public class EcoNewsPageBL {
 
     public NewsItemPageBL clickOnItemNewsByTitle(String title) {
         findNewsItemByTitle(title).click();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new NewsItemPageBL(driver);
+    }
+
+    public NewsItemPageBL clickOnItemNewsById(int index) {
+        findNewsItemByIndex(index).click();
 
         try {
             Thread.sleep(5000);

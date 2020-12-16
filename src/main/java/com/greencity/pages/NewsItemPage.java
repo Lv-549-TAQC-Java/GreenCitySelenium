@@ -9,6 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class NewsItemPage extends BasePage{
     private Button backToNewsButton;
     private TextField itemCategoryTag;
@@ -18,6 +21,7 @@ public class NewsItemPage extends BasePage{
     private Image image;
     private TextField textContent;
     private Link sourceLink;
+    private List<Link> socialNetworkingSitesLink = new LinkedList<>();
 
 
     public NewsItemPage(WebDriver driver) {
@@ -54,5 +58,11 @@ public class NewsItemPage extends BasePage{
         return sourceLink = new Link(driver,NewsItemPageLocators.SOURCE_LINK);
     }
 
-
+    public List<Link> getSocialNetworkingSitesLink() {
+      List<WebElement> socialNetworkingWebElements = driver.findElements(NewsItemPageLocators.SOCIAL_NETWORKING_SITES.getPath());
+        for (WebElement element : socialNetworkingWebElements) {
+            socialNetworkingSitesLink.add(new Link(element));
+        }
+        return socialNetworkingSitesLink;
+    }
 }

@@ -36,6 +36,7 @@ public class EcoNewsPage extends BasePage {
     }
 
     public List<Button> getFilterTegList() {
+        newsList = new ArrayList<>();
         List<WebElement> webElemTegFilter = driver.findElements(EcoNewsPageLocators.FILTER_TEG.getPath());
         for (WebElement element : webElemTegFilter) {
             filterTegList.add(new Button(element));
