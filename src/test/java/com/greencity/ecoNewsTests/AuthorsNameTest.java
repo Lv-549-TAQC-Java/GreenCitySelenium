@@ -12,7 +12,6 @@ public class AuthorsNameTest extends BaseTest {
     public void authorsName() {
         EcoNewsPageBL ecoNewsPageBL = new MainPageBL(driver).getHeaderPageBL().clickOnEcoNewsButton();
         NewsItemComponent newsItem = ecoNewsPageBL.findNewsItemByTitle("У академії IT");
-        ecoNewsPageBL.scrollToWebElement(newsItem.getImg());
         Assert.assertEquals("temp", newsItem.getAuthor().getText());
         NewsItemPageBL newsItemPage = ecoNewsPageBL.clickOnItemNewsByTitle("У академії IT");
         Assert.assertEquals("by temp", newsItemPage.getItemAuthorName());
