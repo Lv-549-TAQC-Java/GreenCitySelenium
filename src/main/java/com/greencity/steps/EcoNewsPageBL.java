@@ -32,7 +32,6 @@ public class EcoNewsPageBL {
         return new EcoNewsPageBL(driver);
     }
 
-
     public CreateNewsPageBL clickOnCreateNewsButton() {
         ecoNewsPage.getCreateNews().click();
         return new CreateNewsPageBL(driver);

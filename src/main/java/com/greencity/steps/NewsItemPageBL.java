@@ -38,5 +38,8 @@ public class NewsItemPageBL {
         return new SocialNetworkingSitePageBL(driver);
     }
 
+    public String getCreatedDate(){
+        return newsItemPage.getDateInfo().getText();
+    }
 
 }
