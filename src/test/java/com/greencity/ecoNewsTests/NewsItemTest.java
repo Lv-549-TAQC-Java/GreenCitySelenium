@@ -8,7 +8,6 @@ public class NewsItemTest extends BaseTest {
     @Test
     public void showListOfTheEcoNewsItems() {
         MainPageBL mainPageBL = new MainPageBL(driver);
-
         EcoNewsPageBL ecoNewsPageBL = mainPageBL
                 .getHeaderPageBL()
                 .clickOnEcoNewsButton();

@@ -1,36 +1,38 @@
 package com.greencity.pages;
 
-import org.openqa.selenium.By;
+import com.greencity.locators.RegisterPageLocators;
+import com.greencity.pageelements.Button;
+import com.greencity.pageelements.InputTextField;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class RegisterPage extends BasePage{
-    private WebElement email;
-    private WebElement firstName;
-    private WebElement password;
-    private WebElement repeatPassword;
-    private WebElement submitButton;
+public class RegisterPage extends BasePage {
+    private InputTextField email;
+    private InputTextField firstName;
+    private InputTextField password;
+    private InputTextField repeatPassword;
+    private Button submitButton;
+
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
 
-    public WebElement getEmail() {
-        return email = driver.findElement(By.id("email"));
+    public InputTextField getEmail() {
+        return email = new InputTextField(driver, RegisterPageLocators.EMAIL);
     }
 
-    public WebElement getFirstName() {
-        return firstName = driver.findElement(By.id("firstName"));
+    public InputTextField getFirstName() {
+        return firstName = new InputTextField(driver, RegisterPageLocators.FIRST_NAME);
     }
 
-    public WebElement getPassword() {
-        return password = driver.findElement(By.id("password"));
+    public InputTextField getPassword() {
+        return password = new InputTextField(driver, RegisterPageLocators.PASSWORD);
     }
 
-    public WebElement getRepeatPassword() {
-        return repeatPassword = driver.findElement(By.id("repeatPassword"));
+    public InputTextField getRepeatPassword() {
+        return repeatPassword = new InputTextField(driver, RegisterPageLocators.CONFIRM_PASSWORD);
     }
 
-    public WebElement getSubmitButton() {
-        return submitButton = driver.findElement(By.xpath(".//*[@type='submit']"));
+    public Button getSubmitButton() {
+        return submitButton = new Button(driver, RegisterPageLocators.SUBMIT_BUTTON);
     }
 }
