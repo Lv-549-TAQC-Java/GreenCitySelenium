@@ -32,7 +32,6 @@ public class EcoNewsPageBL {
         return new EcoNewsPageBL(driver);
     }
 
-
     public CreateNewsPageBL clickOnCreateNewsButton() {
         ecoNewsPage.getCreateNews().click();
         return new CreateNewsPageBL(driver);
@@ -68,8 +67,8 @@ public class EcoNewsPageBL {
         throw new RuntimeException("there is no news on the page with such a title-" + title);
     }
 
-    public NewsItemPageBL clickOnItemNewsById(int index) {
-        findNewsItemByIndex(index).click();
+    public NewsItemPageBL clickOnItemNewsByTitle(String title) {
+        findNewsItemByTitle(title).click();
 
         try {
             Thread.sleep(5000);
@@ -80,14 +79,8 @@ public class EcoNewsPageBL {
         return new NewsItemPageBL(driver);
     }
 
-    public EcoNewsPageBL scrollToWebElement(WebElement element){
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();"
-                ,element);
-        return new EcoNewsPageBL(driver);
-    }
-
-    public NewsItemPageBL clickOnItemNewsByTitle(String title){
-        findNewsItemByTitle(title).click();
+    public NewsItemPageBL clickOnItemNewsById(int index) {
+        findNewsItemByIndex(index).click();
 
         try {
             Thread.sleep(5000);

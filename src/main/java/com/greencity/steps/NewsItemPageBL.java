@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 import java.util.List;
 
 public class NewsItemPageBL {
-    private NewsItemPage newsItemPage;
     protected WebDriver driver;
+    private NewsItemPage newsItemPage;
 
     public NewsItemPageBL(WebDriver driver) {
         this.driver = driver;
@@ -25,8 +25,8 @@ public class NewsItemPageBL {
         return newsItemPage.getItemCategoryTag().getText();
     }
 
-    public String getCreatedDate(){
-        return newsItemPage.getDateInfo().getText();
+    public String getItemAuthorName() {
+        return newsItemPage.getAuthorInfo().getText();
     }
 
     public SocialNetworkingSitePageBL clickOnSocialNetworkingSitesLink(String siteName) {
@@ -38,5 +38,8 @@ public class NewsItemPageBL {
         return new SocialNetworkingSitePageBL(driver);
     }
 
+    public String getCreatedDate(){
+        return newsItemPage.getDateInfo().getText();
+    }
 
 }
