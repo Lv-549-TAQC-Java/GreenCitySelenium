@@ -3,13 +3,14 @@ package com.greencity.pages;
 
 import com.greencity.locators.HeaderPageLocators;
 import com.greencity.pageelements.Button;
+import com.greencity.pageelements.Link;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class HeaderPage extends BasePage{
-    private WebElement signUpButton;
-    private WebElement signInButton;
+    private Link signUp;
+    private Link signIn;
     private Button ecoNewsButton;
 
 
@@ -21,13 +22,11 @@ public class HeaderPage extends BasePage{
         return ecoNewsButton = new Button(driver, HeaderPageLocators.ECO_NEWS_BUTTON);
     }
 
-    public WebElement getSignUpButton() {
-        return signUpButton = driver
-                .findElement(By.cssSelector("* li.sign-up-link.ng-star-inserted > div"));
+    public Link getSignUpLink() {
+        return signUp = new Link(driver, HeaderPageLocators.SIGN_UP);
     }
 
-    public WebElement getSignInButton() {
-        return signInButton = driver
-                .findElement(By.cssSelector("* .sign-in-link>a"));
+    public Link getSignInLink() {
+        return signIn = new Link(driver, HeaderPageLocators.SIGN_IN);
     }
 }
