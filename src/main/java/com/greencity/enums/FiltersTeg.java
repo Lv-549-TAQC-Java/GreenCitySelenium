@@ -1,4 +1,4 @@
-package com.greencity.steps;
+package com.greencity.enums;
 
 public enum FiltersTeg {
     NEWS("News"),

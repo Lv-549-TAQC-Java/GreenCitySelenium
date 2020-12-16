@@ -2,6 +2,7 @@ package com.greencity.steps;
 
 
 
+import com.greencity.enums.FiltersTeg;
 import com.greencity.pageelements.Button;
 import com.greencity.pages.CreateNewsPage;
 import org.openqa.selenium.WebDriver;
