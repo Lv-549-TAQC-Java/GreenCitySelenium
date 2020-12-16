@@ -8,7 +8,9 @@ public enum CreateNewsPageLocators implements BaseLocator {
      CONTENT_NEWS(By.cssSelector(".textarea-wrapper .ng-pristine")),
      CANCEL_BUTTON(By.className("cancel")),
      PREVIEW_BUTTON(By.cssSelector(".submit-buttons > button:nth-of-type(2)")),
-     PUBLISH_BUTTON(By.cssSelector("button[type='submit']"));
+     PUBLISH_BUTTON(By.cssSelector("button[type='submit']")),
+     TAGS_LIST(By.cssSelector("button.ng-star-inserted"));
+
 
     private By path;
 

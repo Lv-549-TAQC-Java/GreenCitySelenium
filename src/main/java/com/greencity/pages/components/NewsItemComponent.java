@@ -1,58 +1,61 @@
 package com.greencity.pages.components;
 
-import org.openqa.selenium.By;
+import com.greencity.locators.NewsItemComponentLocators;
+import com.greencity.pageelements.Image;
+import com.greencity.pageelements.TextField;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsItemComponent {
-    private WebElement img;
-    private List<WebElement> categoryList;
-    private WebElement title;
-    private WebElement description;
-    private WebElement createdDate;
-    private WebElement author;
+    private Image img;
+    private List<TextField> categoryList;
+    private TextField title;
+    private TextField description;
+    private TextField createdDate;
+    private TextField author;
     private final WebElement container;
+
     public NewsItemComponent(WebElement container) {
-        this.container=container;
-        initElem();
+        this.container = container;
     }
 
-    public WebElement getImg() {
-        return img;
+    public Image getImg() {
+        return img = new Image(container, NewsItemComponentLocators.IMG);
     }
 
-    public List<WebElement> getCategoryList() {
+    public List<TextField> getCategoryList() {
+        categoryList = new ArrayList<>();
+        List<WebElement> webElements = container.findElements(NewsItemComponentLocators.CATEGORY_LIST.getPath());
+        for (WebElement w : webElements) {
+            categoryList.add(new TextField(w));
+        }
         return categoryList;
     }
 
-    public WebElement getTitle() {
-        return title;
+    public TextField getTitle() {
+        return title = new TextField(container, NewsItemComponentLocators.TITLE);
     }
 
-    public WebElement getDescription() {
-        return description;
+    public TextField getDescription() {
+        return description = new TextField(container, NewsItemComponentLocators.DESCRIPTION);
     }
 
-    public WebElement getCreatedDate() {
-        return createdDate;
+    public TextField getCreatedDate() {
+        return createdDate = new TextField(userDataList().get(0));
     }
 
-    public WebElement getAuthor() {
-        return author;
+    public TextField getAuthor() {
+        return author = new TextField(userDataList().get(1));
     }
 
-    public void click(){
-       container.click();
+    public void click() {
+        container.click();
     }
 
-    private void initElem() {
-        img = container.findElement(By.cssSelector("div.list-image"));
-        categoryList = container.findElements(By.cssSelector("div.filter-tag > div"));
-        title = container.findElement(By.cssSelector("div.title-list"));
-        description = container.findElement(By.cssSelector("div.list-text"));
-        List<WebElement> userDataList = container.findElements(By.cssSelector("div.user-data-added-news > p"));
-        createdDate = userDataList.get(0);
-        author = userDataList.get(1);
+    private  List<WebElement> userDataList(){
+        List<WebElement> userDataList = container.findElements(NewsItemComponentLocators.USER_DATA_LIST.getPath());
+        return userDataList;
     }
 }

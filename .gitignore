@@ -15,4 +15,5 @@ buildNumber.properties
 *.log
 src/main/resources/password.properties
 
-
+*.properties
+/src/main/java/com/greencity/pages/warmup/

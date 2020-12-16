@@ -4,12 +4,10 @@ import com.greencity.datamodel.RegisterModel;
 import com.greencity.pages.RegisterPage;
 import com.greencity.pages.SuccessRegisterPage;
 import com.greencity.repository.RegisterModelRepository;
-//import com.thoughtworks.selenium.SeleneseTestBase;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class RegisterPageBL {
-    //private static final SeleneseTestBase Assert = ;
     private RegisterPage registerPage;
     private SuccessRegisterPage successRegisterPage;
     protected WebDriver driver;
@@ -32,20 +30,20 @@ public class RegisterPageBL {
 
     private void inputEmail(String email) {
         registerPage.getEmail().clear();
-        registerPage.getEmail().sendKeys(email);
+        registerPage.getEmail().sendText(email);
     }
 
     private void inputFirstName(String firstname) {
         registerPage.getFirstName().clear();
-        registerPage.getFirstName().sendKeys(firstname);
+        registerPage.getFirstName().sendText(firstname);
     }
 
 
     private void inputPassword(String password) {
         registerPage.getPassword().clear();
-        registerPage.getPassword().sendKeys(password);
+        registerPage.getPassword().sendText(password);
         registerPage.getRepeatPassword().clear();
-        registerPage.getRepeatPassword().sendKeys(password);
+        registerPage.getRepeatPassword().sendText(password);
     }
 
     private RegisterPageBL clickOnSubmittButton() {

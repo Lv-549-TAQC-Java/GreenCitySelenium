@@ -1,5 +1,6 @@
 package com.greencity.steps;
 
+import com.greencity.enums.FiltersTeg;
 import com.greencity.pageelements.Button;
 import com.greencity.pages.CreateNewsPage;
 import com.greencity.pages.EcoNewsPage;
@@ -29,7 +30,6 @@ public class EcoNewsPageBL {
             }
         return new EcoNewsPageBL(driver);
     }
-
 
     public CreateNewsPageBL clickOnCreateNewsButton() {
         ecoNewsPage.getCreateNews().click();
@@ -64,6 +64,18 @@ public class EcoNewsPageBL {
             }
         }
         throw new RuntimeException("there is no news on the page with such a title-" + title);
+    }
+
+    public NewsItemPageBL clickOnItemNewsByTitle(String title) {
+        findNewsItemByTitle(title).click();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new NewsItemPageBL(driver);
     }
 
     public NewsItemPageBL clickOnItemNewsById(int index) {

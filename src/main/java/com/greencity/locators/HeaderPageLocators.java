@@ -8,7 +8,6 @@ public enum HeaderPageLocators implements BaseLocator{
     SIGN_IN(By.cssSelector(".tertiary-global-button .ng-star-inserted")),
     SIGN_UP(By.cssSelector("* li.sign-up-link.ng-star-inserted > div"));
 
-
     private By path;
 
     HeaderPageLocators(By path){
