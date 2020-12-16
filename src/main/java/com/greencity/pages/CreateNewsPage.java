@@ -16,6 +16,7 @@ public class CreateNewsPage extends BasePage{
     private Button previewButton;
     private Button publishButton;
     private List<Button> tagsList;
+    private Button tagByName;
 
     public CreateNewsPage(WebDriver driver) {
         super(driver);
@@ -52,5 +53,13 @@ public class CreateNewsPage extends BasePage{
             tagsList.add(new Button(element));
         }
         return tagsList;
+    }
+
+    public Button getTagByName(FiltersTeg tag) {
+        tagByName = getTagsList().stream()
+                .filter((element) -> element
+                        .getText().toLowerCase().contains(tag.toString().toLowerCase()))
+                .findFirst().get();
+        return tagByName;
     }
 }
