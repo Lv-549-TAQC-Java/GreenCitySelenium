@@ -30,4 +30,7 @@ public class Button extends BaseElement{
        return webElement.getText();
     }
 
+    public String getAttribute(String str) {
+         return webElement.getAttribute(str);
+    }
 }

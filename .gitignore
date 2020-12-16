@@ -13,7 +13,7 @@ buildNumber.properties
 .idea
 *.iml
 *.log
-src/main/resources/password.properties
+src/main/resources/singIn.properties
 
 *.properties
 /src/main/java/com/greencity/pages/warmup/

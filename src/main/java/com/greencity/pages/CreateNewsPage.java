@@ -1,14 +1,13 @@
 package com.greencity.pages;
 
+import com.greencity.enums.FiltersTeg;
 import com.greencity.locators.CreateNewsPageLocators;
 import com.greencity.pageelements.Button;
 import com.greencity.pageelements.InputTextField;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class CreateNewsPage extends BasePage{
     private InputTextField contentNews;

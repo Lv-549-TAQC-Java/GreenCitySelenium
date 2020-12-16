@@ -23,18 +23,30 @@ public class SingInPageBL {
     private String getPassword() {
         final Properties prop = new Properties();
         try {
-            prop.load(new FileInputStream("src/main/resources/password.properties"));
+            prop.load(new FileInputStream("src/main/resources/singIn.properties"));
             String password = prop.getProperty("eco.news.password");
             return password;
         } catch (Exception error) {
-            System.out.println("File password not found");
+            System.out.println("Password not found in file");
+        }
+        return null;
+    }
+
+    private String getEmail() {
+        final Properties prop = new Properties();
+        try {
+            prop.load(new FileInputStream("src/main/resources/singIn.properties"));
+            String email = prop.getProperty("eco.news.email");
+            return email;
+        } catch (Exception error) {
+            System.out.println("Email not found in file");
         }
         return null;
     }
 
     public SingInPageBL putEmail(){
         singInPage.getEmailForm().clear();
-        singInPage.getEmailForm().sendText("mishakaspar@gmail.com");
+        singInPage.getEmailForm().sendText(getEmail());
         return new SingInPageBL(driver);
     }
 
@@ -46,18 +58,6 @@ public class SingInPageBL {
 
     public HeaderPageBL clickOnSingIn(){
         singInPage.getSingIn().click();
-        return new HeaderPageBL(driver);
-    }
-
-    public HeaderPageBL isClickable(){
-       // WebDriverWait webDriverWait = new WebDriverWait(driver, 3);
-        try {
-            new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(HeaderPageLocators.ECO_NEWS_BUTTON.getPath()));
-            System.out.println("Element is clickable");
-        }
-        catch(TimeoutException e) {
-            System.out.println("Element isn't clickable");
-        }
         return new HeaderPageBL(driver);
     }
 }
