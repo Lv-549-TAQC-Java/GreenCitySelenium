@@ -5,7 +5,9 @@ import com.greencity.pages.CreateNewsPage;
 import com.greencity.pages.EcoNewsPage;
 import com.greencity.pages.components.NewsItemComponent;
 import com.greencity.utils.ScrollPageDown;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.util.List;
@@ -64,6 +66,18 @@ public class EcoNewsPageBL {
             }
         }
         throw new RuntimeException("there is no news on the page with such a title-" + title);
+    }
+
+    public NewsItemPageBL clickOnItemNewsByTitle(String title) {
+        findNewsItemByTitle(title).click();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return new NewsItemPageBL(driver);
     }
 
     public NewsItemPageBL clickOnItemNewsById(int index) {
