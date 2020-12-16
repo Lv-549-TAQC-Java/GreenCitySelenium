@@ -19,48 +19,43 @@ public class NewsItemComponent {
 
     public NewsItemComponent(WebElement container) {
         this.container = container;
-        initElem();
     }
 
     public Image getImg() {
-        return img;
+        return img = new Image(container, NewsItemComponentLocators.IMG);
     }
 
     public List<TextField> getCategoryList() {
+        categoryList = new ArrayList<>();
+        List<WebElement> webElements = container.findElements(NewsItemComponentLocators.CATEGORY_LIST.getPath());
+        for (WebElement w : webElements) {
+            categoryList.add(new TextField(w));
+        }
         return categoryList;
     }
 
     public TextField getTitle() {
-        return title;
+        return title = new TextField(container, NewsItemComponentLocators.TITLE);
     }
 
     public TextField getDescription() {
-        return description;
+        return description = new TextField(container, NewsItemComponentLocators.DESCRIPTION);
     }
 
     public TextField getCreatedDate() {
-        return createdDate;
+        return createdDate = new TextField(userDataList().get(0));
     }
 
     public TextField getAuthor() {
-        return author;
+        return author = new TextField(userDataList().get(1));
     }
 
     public void click() {
         container.click();
     }
 
-    private void initElem() {
-        img = new Image(container, NewsItemComponentLocators.IMG);
-        categoryList = new ArrayList<>();
-        List<WebElement> webElements = container.findElements(NewsItemComponentLocators.CATEGORY_LIST.getPath());
-        for (WebElement w : webElements) {
-            categoryList.add(new TextField(w));
-        }
-        title = new TextField(container, NewsItemComponentLocators.TITLE);
-        description = new TextField(container, NewsItemComponentLocators.DESCRIPTION);
+    private  List<WebElement> userDataList(){
         List<WebElement> userDataList = container.findElements(NewsItemComponentLocators.USER_DATA_LIST.getPath());
-        createdDate = new TextField(userDataList.get(0));
-        author = new TextField(userDataList.get(1));
+        return userDataList;
     }
 }
