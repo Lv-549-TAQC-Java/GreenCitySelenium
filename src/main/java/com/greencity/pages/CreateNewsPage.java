@@ -1,14 +1,13 @@
 package com.greencity.pages;
 
+import com.greencity.enums.FiltersTeg;
 import com.greencity.locators.CreateNewsPageLocators;
 import com.greencity.pageelements.Button;
 import com.greencity.pageelements.InputTextField;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class CreateNewsPage extends BasePage{
     private InputTextField contentNews;
@@ -17,6 +16,7 @@ public class CreateNewsPage extends BasePage{
     private Button previewButton;
     private Button publishButton;
     private List<Button> tagsList;
+    private Button tagByName;
 
     public CreateNewsPage(WebDriver driver) {
         super(driver);
@@ -53,5 +53,13 @@ public class CreateNewsPage extends BasePage{
             tagsList.add(new Button(element));
         }
         return tagsList;
+    }
+
+    public Button getTagByName(FiltersTeg tag) {
+        tagByName = getTagsList().stream()
+                .filter((element) -> element
+                        .getText().toLowerCase().contains(tag.toString().toLowerCase()))
+                .findFirst().get();
+        return tagByName;
     }
 }
