@@ -34,10 +34,11 @@ public class CommentTest extends BaseTest {
                 .collect(Collectors.toList());
 
         log.info(comments.toString());
-        SimpleDateFormat formatter = new SimpleDateFormat("dd, yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
         Date date = new Date(System.currentTimeMillis());
-        String comment = "CommentComponent{authorName=Lv549TAQC, commentDate=Dec " + formatter.format(date) +
+        String comment = "CommentComponent{authorName=Lv549TAQC, commentDate=" + formatter.format(date) +
                 ", commentText=Hello!}";
+        log.info(comment);
         Assert.assertTrue(comments.contains(comment));
     }
 }
