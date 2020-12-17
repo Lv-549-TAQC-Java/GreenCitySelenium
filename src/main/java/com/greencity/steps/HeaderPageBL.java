@@ -11,15 +11,17 @@ public class HeaderPageBL {
     private HeaderPage headerPage;
     protected WebDriver driver;
 
-    public HeaderPageBL(WebDriver driver){
+    public HeaderPageBL(WebDriver driver) {
         this.driver = driver;
         headerPage = new HeaderPage(driver);
     }
+
     public RegisterPageBL clickOnSignUpButton() {
         headerPage.getSignUpLink().click();
         return new RegisterPageBL(driver);
     }
-    public EcoNewsPageBL clickOnEcoNewsButton(){
+
+    public EcoNewsPageBL clickOnEcoNewsButton() {
         headerPage.getEcoNewsButton().click();
         return new EcoNewsPageBL(driver);
     }
@@ -28,7 +30,8 @@ public class HeaderPageBL {
         headerPage.getSignInLink().click();
         return new SingInPageBL(driver);
     }
-    public HeaderPageBL isClickable(HeaderPageLocators locator){
+
+    public HeaderPageBL isClickable(HeaderPageLocators locator) {
         try {
             new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(locator.getPath()));
             System.out.println("Element is clickable");

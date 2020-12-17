@@ -1,33 +1,40 @@
 package com.greencity.pages.components;
 
-import org.openqa.selenium.By;
+import com.greencity.locators.CommentComponentLocators;
+import com.greencity.pageelements.TextField;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import org.openqa.selenium.WebElement;
 
+@Getter
+@EqualsAndHashCode(exclude = "container")
 public class CommentComponent {
-
-    WebElement authorName;
-    WebElement commentDate;
-    WebElement commentText;
+    private TextField authorName;
+    private TextField commentDate;
+    private TextField commentText;
     private final WebElement container;
 
-    public CommentComponent(WebElement container){
+    public CommentComponent(WebElement container) {
         this.container = container;
         init();
     }
 
-    public WebElement getAuthorName(){return authorName;}
-    public WebElement getCommentDate(){return commentDate;}
-    public WebElement getCommentText(){return commentText;}
-
-    private void init(){
-        authorName = container.findElement(By.cssSelector("app-comments-list .ng-star-inserted:nth-of-type(1) " +
-                ".author-name span"));
-        commentDate = container.findElement(By.cssSelector("app-comments-list .ng-star-inserted:nth-of-type(1)" +
-                ".comment-date-month"));
-        commentText = container.findElement(By.cssSelector("app-comments-list .ng-star-inserted:nth-of-type(1) .comment-text"));
+    private void init() {
+        authorName = new TextField(container, CommentComponentLocators.AUTHOR_NAME);
+        commentDate = new TextField(container, CommentComponentLocators.COMMENT_DATE);
+        commentText = new TextField(container, CommentComponentLocators.COMMENT_TEXT);
     }
-    public void click(){
+
+    public void click() {
         container.click();
     }
 
+    @Override
+    public String toString() {
+        return "CommentComponent{" +
+                "authorName=" + authorName.getText() +
+                ", commentDate=" + commentDate.getText() +
+                ", commentText=" + commentText.getText() +
+                '}';
+    }
 }

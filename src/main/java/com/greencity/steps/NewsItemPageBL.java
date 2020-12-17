@@ -1,6 +1,5 @@
 package com.greencity.steps;
 
-import com.greencity.pageelements.Button;
 import com.greencity.pageelements.Link;
 import com.greencity.pages.NewsItemPage;
 import org.openqa.selenium.WebDriver;
@@ -20,11 +19,13 @@ public class NewsItemPageBL {
         newsItemPage.getBackToNewsButton().click();
         return new EcoNewsPageBL(driver);
     }
-    public NewsItemPageBL putComment(){
-        newsItemPage.getCreateComment().getCommentText().sendKeys("hello");
+
+    public NewsItemPageBL putComment(String comment) {
+        newsItemPage.getCreateComment().getCommentText().sendText(comment);
         return new NewsItemPageBL(driver);
     }
-    public NewsItemPageBL clickOnCommentButton(){
+
+    public NewsItemPageBL clickOnCommentButton() {
         newsItemPage.getCreateComment().getCommentButton().click();
         return new NewsItemPageBL(driver);
     }
@@ -46,8 +47,11 @@ public class NewsItemPageBL {
         return new SocialNetworkingSitePageBL(driver);
     }
 
-    public String getCreatedDate(){
+    public String getCreatedDate() {
         return newsItemPage.getDateInfo().getText();
     }
 
+    public NewsItemPage getNewsItemPage() {
+        return newsItemPage;
+    }
 }

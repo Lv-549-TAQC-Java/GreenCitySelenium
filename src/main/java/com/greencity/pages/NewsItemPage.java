@@ -7,17 +7,12 @@ import com.greencity.pageelements.Link;
 import com.greencity.pageelements.TextField;
 import com.greencity.pages.components.CommentComponent;
 import com.greencity.pages.components.CreateComment;
-import com.greencity.utils.ScrollPageDown;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class NewsItemPage extends BasePage{
     private Button backToNewsButton;
@@ -45,12 +40,16 @@ public class NewsItemPage extends BasePage{
     }
 
     public List<CommentComponent> getCommentComponents() {
+        commentComponents = new ArrayList<>();
+        List<WebElement> comments = driver.findElements(NewsItemPageLocators.COMMENT.getPath());
+        for (WebElement comment : comments) {
+            commentComponents.add(new CommentComponent(comment));
+        }
         return commentComponents;
     }
 
     public CreateComment getCreateComment() {
-        return createComment = new CreateComment(driver.findElement(By.cssSelector("app-eco-news-detail " +
-                ".wrapper:nth-of-type(3)")));
+        return createComment = new CreateComment(driver.findElement(NewsItemPageLocators.COMMENT_FORM.getPath()));
     }
 
     public TextField getNewsTitle(){

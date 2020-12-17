@@ -1,11 +1,15 @@
 package com.greencity.pages.components;
 
-import org.openqa.selenium.By;
+import com.greencity.locators.CreateCommentLocators;
+import com.greencity.pageelements.Button;
+import com.greencity.pageelements.InputTextField;
+import lombok.Getter;
 import org.openqa.selenium.WebElement;
 
+@Getter
 public class CreateComment {
-    WebElement commentText;
-    WebElement commentButton;
+    private InputTextField commentText;
+    private Button commentButton;
     private final WebElement container;
 
     public CreateComment(WebElement container) {
@@ -13,11 +17,8 @@ public class CreateComment {
         init();
     }
 
-    public WebElement getCommentText(){return commentText;}
-    public WebElement getCommentButton(){return commentButton;}
-
-    public void init(){
-        commentText = container.findElement(By.cssSelector("textarea"));
-        commentButton = container.findElement(By.cssSelector(".primary-global-button"));
+    public void init() {
+        commentText = new InputTextField(container, CreateCommentLocators.COMMENT_TEXT);
+        commentButton = new Button(container, CreateCommentLocators.COMMENT_BUTTON);
     }
 }
