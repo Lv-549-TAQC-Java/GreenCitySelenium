@@ -5,10 +5,12 @@ import com.greencity.pageelements.Button;
 import com.greencity.pageelements.Image;
 import com.greencity.pageelements.Link;
 import com.greencity.pageelements.TextField;
-import org.openqa.selenium.By;
+import com.greencity.pages.components.CommentComponent;
+import com.greencity.pages.components.CreateComment;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,6 +24,8 @@ public class NewsItemPage extends BasePage{
     private TextField textContent;
     private Link sourceLink;
     private List<Link> socialNetworkingSitesLink = new LinkedList<>();
+    private CreateComment createComment;
+    private List<CommentComponent> commentComponents;
 
 
     public NewsItemPage(WebDriver driver) {
@@ -34,6 +38,20 @@ public class NewsItemPage extends BasePage{
     public TextField getItemCategoryTag() {
         return itemCategoryTag =new TextField(driver,NewsItemPageLocators.ITEM_CATEGORY_TAG);
     }
+
+    public List<CommentComponent> getCommentComponents() {
+        commentComponents = new ArrayList<>();
+        List<WebElement> comments = driver.findElements(NewsItemPageLocators.COMMENT.getPath());
+        for (WebElement comment : comments) {
+            commentComponents.add(new CommentComponent(comment));
+        }
+        return commentComponents;
+    }
+
+    public CreateComment getCreateComment() {
+        return createComment = new CreateComment(driver.findElement(NewsItemPageLocators.COMMENT_FORM.getPath()));
+    }
+
     public TextField getNewsTitle(){
         return newsTitle = new TextField(driver,NewsItemPageLocators.NEWS_TITLE);
     }

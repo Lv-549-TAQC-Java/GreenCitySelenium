@@ -4,10 +4,10 @@ import com.greencity.locators.BaseLocator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Button extends BaseElement{
+public class Button extends BaseElement {
 
     public Button(WebDriver driver, BaseLocator locator) {
-        super(driver,locator );
+        super(driver, locator);
     }
 
     public Button(WebElement webElement, BaseLocator locator) {
@@ -18,16 +18,13 @@ public class Button extends BaseElement{
         super(webElement);
     }
 
-    public void click(){
+    public void click() {
+        while (!(webElement.isDisplayed() && webElement.isEnabled())) ;
         this.webElement.click();
     }
 
-    public void isDisplayed(){
-        webElement.isDisplayed();
-    }
-
-    public String getText(){
-       return webElement.getText();
+    public String getText() {
+        return webElement.getText();
     }
 
 }
