@@ -1,7 +1,6 @@
 package com.greencity.ecoNewsTests;
 
 import com.greencity.enums.FiltersTeg;
-import com.greencity.locators.HeaderPageLocators;
 import com.greencity.steps.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -23,7 +22,6 @@ public class TagsCreateTest extends BaseTest {
     public void createNewsTagTest() {
         HeaderPageBL headerPageBL = new HeaderPageBL(driver);
         CreateNewsPageBL clickOnTag = headerPageBL
-                .isClickable(HeaderPageLocators.ECO_NEWS_BUTTON)
                 .clickOnEcoNewsButton()
                 .clickOnCreateNewsButton()
                 .clickOnTagCreateButton(FiltersTeg.NEWS);
@@ -34,6 +32,5 @@ public class TagsCreateTest extends BaseTest {
 
         clickOnTag.clickOnTagCreateButton(FiltersTeg.NEWS);
         Assert.assertTrue(clickOnTag.isTagActive(FiltersTeg.NEWS));
-
     }
 }
