@@ -22,11 +22,8 @@ public class Button extends BaseElement {
     }
 
     public void click() {
+        while (!(webElement.isDisplayed() && webElement.isEnabled())) ;
         this.webElement.click();
-    }
-
-    public void isDisplayed() {
-        webElement.isDisplayed();
     }
 
     public String getText() {
